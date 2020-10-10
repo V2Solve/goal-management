@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architect-project version="1.0" appversion="1.0.8">
+ <project-name>goalmanagement</project-name>
+ <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
+ <project-data-sources>
+  <data-source id="DS0">
+   <property key="Logical" value="PlayPen Database" />
+  </data-source>
+ </project-data-sources>
+ <source-databases>
+ </source-databases>
+ <target-database id="ppdb" dbcs-ref="DS0">
+  <table id="TAB1" populated="true" UUID="44dd1944-974a-4227-a368-a1971a8c6468" name="client_identity" objectType="TABLE" physicalName="client_identity" >
+   <remarks>This represents a logged in client Identity..</remarks>
+   <folder id="FOLTAB11" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL2" populated="true" UUID="1316310e-7d00-4f2b-ac3d-eba1f8ccb322" autoIncrement="false" autoIncrementSequenceName="client_identity_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The PK</remarks>
+    </column>
+    <column id="COL3" populated="true" UUID="c4b17bd0-05ec-4bc8-915a-6a74a6693d13" autoIncrement="false" autoIncrementSequenceName="client_identity_unique_identity_id_seq" defaultValue="" name="unique_identity_id" nullable="0" physicalName="unique_identity_id" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>This should be a unique identity in the system within the IDP (provider).</remarks>
+    </column>
+    <column id="COL4" populated="true" UUID="5ae5a536-d0ec-4da3-89f4-79a52ebe9f65" autoIncrement="false" autoIncrementSequenceName="client_identity_idp_id_seq" defaultValue="" name="idp_id" nullable="0" physicalName="idp_id" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Identity of the provider, such as google, or facebook.</remarks>
+    </column>
+    <column id="COL5" populated="true" UUID="a4876c66-dbb3-4b12-9f32-4cf546f980ac" autoIncrement="false" autoIncrementSequenceName="client_identity_last_login_seq" defaultValue="" name="last_login" nullable="0" physicalName="last_login" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks>The timestamp of when it logged in last.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB13" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB12" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB14" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX6" populated="true" UUID="5a45ea46-2ddb-4a33-b25c-eb73ce852606" clustered="false" name="client_identity_pk" physicalName="client_identity_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC7" populated="true" UUID="64c04b0a-b2d9-4aa0-9952-ad230f265b44" ascendingOrDescending="UNSPECIFIED" column-ref="COL2" name="id" physicalName="id" />
+    </index>
+    <index id="IDX8" populated="true" UUID="8682ac52-04de-44b1-937b-210fb6e39178" clustered="false" name="unique_composite_identity_idx" physicalName="unique_composite_identity_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC9" populated="true" UUID="aa121c79-186c-43b6-a8dd-bb955797b44b" ascendingOrDescending="UNSPECIFIED" column-ref="COL3" name="unique_identity_id" physicalName="unique_identity_id" />
+     <index-column id="IDC10" populated="true" UUID="4291e4f6-759b-4cef-8693-80768b0e98d1" ascendingOrDescending="UNSPECIFIED" column-ref="COL4" name="idp_id" physicalName="idp_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB11" populated="true" UUID="6132ff44-559a-4789-a30c-cc1a874eda24" name="client_account" objectType="TABLE" physicalName="client_account" >
+   <remarks>This holds the account information of the client.  This happens when the client registers and creates an account.</remarks>
+   <folder id="FOLTAB111" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL12" populated="true" UUID="77b4b52d-5252-454b-932d-92e67ad4e2a1" autoIncrement="false" autoIncrementSequenceName="client_account_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>Unique Primary Key</remarks>
+    </column>
+    <column id="COL13" populated="true" UUID="fc26023e-6121-4304-a6d8-c66852bd9e3c" autoIncrement="false" autoIncrementSequenceName="client_account_primary_email_seq" defaultValue="" name="primary_email" nullable="0" physicalName="primary_email" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>The primary email of the person. This needs to be unique in the system.</remarks>
+    </column>
+    <column id="COL14" populated="true" UUID="bc9263a1-6dc3-48de-8680-691d62130e00" autoIncrement="false" autoIncrementSequenceName="client_account_first_name_seq" defaultValue="" name="first_name" nullable="0" physicalName="first_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL15" populated="true" UUID="eb95658a-f375-4918-a810-559b1d2ff320" autoIncrement="false" autoIncrementSequenceName="client_account_last_name_seq" defaultValue="" name="last_name" nullable="0" physicalName="last_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL16" populated="true" UUID="a32109ca-35d3-49fd-aeea-d5a4f659732a" autoIncrement="false" autoIncrementSequenceName="client_account_unique_display_name_seq" defaultValue="" name="unique_display_name" nullable="0" physicalName="unique_display_name" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>A unique display name for purpose of addressing the user.</remarks>
+    </column>
+    <column id="COL17" populated="true" UUID="7c5edcc1-b0ff-421e-8167-45c937656434" autoIncrement="false" autoIncrementSequenceName="client_account_email_verified_seq" defaultValue="" name="email_verified" nullable="0" physicalName="email_verified" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="16" userDefinedTypeUUID="a26374aa-3026-4bb8-b564-eb2e186dfa5d" >
+     <remarks>indicates if the email was verified or not.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB113" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB112" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB114" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX18" populated="true" UUID="6ad3f698-ff08-4e8a-aebd-93ef9a9dbef8" clustered="false" name="client_account_pk" physicalName="client_account_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC19" populated="true" UUID="ffb92a9f-fdb7-42f6-b6f5-630b4b2c804b" ascendingOrDescending="UNSPECIFIED" column-ref="COL12" name="id" physicalName="id" />
+    </index>
+    <index id="IDX20" populated="true" UUID="fa54d605-46f4-401b-ace6-88f1f53fcb5c" clustered="false" name="client_account_unique_email_idx" physicalName="client_account_unique_email_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC21" populated="true" UUID="d92898e1-08f7-405d-902e-4a0a31cb066b" ascendingOrDescending="UNSPECIFIED" column-ref="COL13" name="primary_email" physicalName="primary_email" />
+    </index>
+    <index id="IDX22" populated="true" UUID="905d2d2d-6cb2-4c16-ae25-7e471db2545c" clustered="false" name="client_account_unique_display_name_idx" physicalName="client_account_unique_display_name_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC23" populated="true" UUID="2a0d0611-872b-4c14-b7d4-bda6520ade83" ascendingOrDescending="UNSPECIFIED" column-ref="COL16" name="unique_display_name" physicalName="unique_display_name" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB24" populated="true" UUID="617a464c-0014-44e6-a6f8-1d210b3add6c" name="client_identities" objectType="TABLE" physicalName="client_identities" >
+   <remarks>This is a relationship table of mapping multiple login identities to a client account.</remarks>
+   <folder id="FOLTAB241" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL25" populated="true" UUID="c0a70262-e15a-4146-824e-f144b101c4fa" autoIncrement="false" autoIncrementSequenceName="client_identities_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The PK</remarks>
+    </column>
+    <column id="COL26" populated="true" UUID="e11ac7f0-2a09-49a7-9653-529bdbd55440" autoIncrement="false" autoIncrementSequenceName="client_identities_client_account_id_seq" defaultValue="" name="client_account_id" nullable="0" physicalName="client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>Unique Primary Key</remarks>
+    </column>
+    <column id="COL27" populated="true" UUID="da43fd3a-33cf-4f3f-be76-7a937c1a0327" autoIncrement="false" autoIncrementSequenceName="client_identities_client_identity_id_seq" defaultValue="" name="client_identity_id" nullable="0" physicalName="client_identity_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB243" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB242" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB244" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX28" populated="true" UUID="b38a05d0-0b4b-4189-a442-44d93e464050" clustered="false" name="client_identities_pk" physicalName="client_identities_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC29" populated="true" UUID="0f526c6e-6225-4e09-8513-2c492bdbe74d" ascendingOrDescending="UNSPECIFIED" column-ref="COL25" name="id" physicalName="id" />
+    </index>
+    <index id="IDX30" populated="true" UUID="c57279e2-4824-4ca5-99b9-8e18b62d02aa" clustered="false" name="client_identities_unique_combo_idx" physicalName="client_identities_unique_combo_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC31" populated="true" UUID="3ce06385-ce51-46f5-95fa-3ed308bcde0c" ascendingOrDescending="UNSPECIFIED" column-ref="COL26" name="client_account_id" physicalName="client_account_id" />
+     <index-column id="IDC32" populated="true" UUID="0b193464-990c-494f-91b8-ebd81dcf1f9d" ascendingOrDescending="UNSPECIFIED" column-ref="COL27" name="client_identity_id" physicalName="client_identity_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB33" populated="true" UUID="a3d18c76-be85-4b56-97c8-78dbdb330cb0" name="org_goal_definition" objectType="TABLE" physicalName="org_goal_definition" >
+   <remarks>This defines a goal of an organization.</remarks>
+   <folder id="FOLTAB331" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL34" populated="true" UUID="c22aa4ce-3248-4641-a7e9-5daf8c785267" autoIncrement="false" autoIncrementSequenceName="org_goal_definition_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The PK.</remarks>
+    </column>
+    <column id="COL35" populated="true" UUID="bdc5cc07-7627-4ca7-9552-65ec7ef108ad" autoIncrement="false" autoIncrementSequenceName="org_goal_definition_title_seq" defaultValue="" name="title" nullable="0" physicalName="title" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Title of the goal.</remarks>
+    </column>
+    <column id="COL36" populated="true" UUID="5528868b-3419-445f-b143-fbe4f683d9c2" autoIncrement="false" autoIncrementSequenceName="org_goal_definition_description_seq" defaultValue="" name="description" nullable="0" physicalName="description" precision="1024" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Describe the goal. what it entails.</remarks>
+    </column>
+    <column id="COL37" populated="true" UUID="3f2b3ade-a5e7-4021-a0a3-2fc654ab5a67" autoIncrement="false" autoIncrementSequenceName="org_goal_definition_goal_weight_seq" defaultValue="" name="goal_weight" nullable="1" physicalName="goal_weight" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="8" userDefinedTypeUUID="4fc90970-b2e5-41dd-911c-cc605d87e7a8" >
+     <remarks>The weight of the goal with respect to other goals at the same hierarchy</remarks>
+    </column>
+    <column id="COL38" populated="true" UUID="a509a68c-47d4-4ab9-b64a-df19c11efabc" autoIncrement="false" autoIncrementSequenceName="org_goal_definition_goal_definition_state_seq" defaultValue="" name="goal_definition_state" nullable="0" physicalName="goal_definition_state" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>The state of the goal, could be draft, could be active.. etc.
+Goals definitions in draft state may not be shared across the enterprise..</remarks>
+    </column>
+    <column id="COL39" populated="true" UUID="e550655d-dfa1-496c-b962-5e0aca44c4ad" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The creator of the goal/editor/owner of the goal definition.</remarks>
+    </column>
+    <column id="COL40" populated="true" UUID="ba657a61-d3a9-4b22-95a1-90a6e544fd74" autoIncrement="false" autoIncrementSequenceName="org_goal_domain_id_seq" defaultValue="" name="org_goal_domain_id" nullable="0" physicalName="org_goal_domain_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The domain to which this goal belongs.</remarks>
+    </column>
+    <column id="COL41" populated="true" UUID="62a8e803-16ae-4433-b1fe-750fedbdd499" autoIncrement="false" autoIncrementSequenceName="org_goal_definition_id_seq" defaultValue="" name="Parent_id" nullable="1" physicalName="Parent_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>If this is a SUB Goal, then the parent id of the sub goal. If this is a top level goal, then this would be null..</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB333" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB332" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB334" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX42" populated="true" UUID="e42655bd-43ec-4350-a83c-dec60ea6fb27" clustered="false" name="org_goal_definition_pk" physicalName="org_goal_definition_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC43" populated="true" UUID="8b6f20f8-0e9d-4f88-ac22-a326046469df" ascendingOrDescending="UNSPECIFIED" column-ref="COL34" name="id" physicalName="id" />
+    </index>
+    <index id="IDX44" populated="true" UUID="69b308d9-ae8f-4b33-8713-1cebc1e6e530" clustered="false" name="org_goal_definition_unique_goal_title_idx" physicalName="org_goal_definition_unique_goal_title_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC45" populated="true" UUID="517a2356-a10f-49a8-99ea-12e103f3061f" ascendingOrDescending="UNSPECIFIED" column-ref="COL35" name="title" physicalName="title" />
+     <index-column id="IDC46" populated="true" UUID="66de9a2a-fb91-4f7a-978c-e23576d4b3d6" ascendingOrDescending="UNSPECIFIED" column-ref="COL40" name="org_goal_domain_id" physicalName="org_goal_domain_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB47" populated="true" UUID="43c5505a-0c12-420b-a295-1a8f28e1d130" name="goal_value_type" objectType="TABLE" physicalName="goal_value_type" >
+   <remarks>This table acts a lookup table for goal_value_types</remarks>
+   <folder id="FOLTAB471" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL48" populated="true" UUID="ad495a1d-1df0-435e-a4b7-e464ae0ee669" autoIncrement="false" autoIncrementSequenceName="goal_value_type_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The PK</remarks>
+    </column>
+    <column id="COL49" populated="true" UUID="ff83ead9-4246-41d8-8398-b887c1c427de" autoIncrement="false" autoIncrementSequenceName="goal_value_type_title_seq" defaultValue="" name="title" nullable="0" physicalName="title" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>The value type definition for a goal.</remarks>
+    </column>
+    <column id="COL50" populated="true" UUID="f71550ef-c11d-4c36-9ed5-d7ad01f4528c" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The person defining this value type. If the</remarks>
+    </column>
+    <column id="COL51" populated="true" UUID="bb6e3e34-a478-4059-a553-ae566e26aff4" autoIncrement="false" autoIncrementSequenceName="org_goal_definition_id_seq" defaultValue="" name="org_goal_definition_id" nullable="1" physicalName="org_goal_definition_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>If null, then it means that this goal_value_type can be used in any goal. If not null, it could mean that it could be only used in this chain and below or something like that.</remarks>
+    </column>
+    <column id="COL52" populated="true" UUID="9a7d60ea-0dd7-446d-b3d0-3b83e8bc8edb" autoIncrement="false" autoIncrementSequenceName="goal_value_type_goal_definition_state_seq" defaultValue="" name="goal_definition_state" nullable="0" physicalName="goal_definition_state" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>This could be a state, such as draft, or approved, or active.. etc.</remarks>
+    </column>
+    <column id="COL53" populated="true" UUID="dbcc1596-6fa2-45b2-8c10-1144a63d58da" autoIncrement="false" autoIncrementSequenceName="org_goal_domain_id_seq" defaultValue="" name="org_goal_domain_id" nullable="0" physicalName="org_goal_domain_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The domain it belongs to, or NULL if it is global.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB473" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB472" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB474" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX54" populated="true" UUID="16eee5c3-ecd6-40d2-8f33-28f5fa4c516e" clustered="false" name="goal_value_type_pk" physicalName="goal_value_type_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC55" populated="true" UUID="20c5e539-1924-4325-aeaa-e9047b45a34d" ascendingOrDescending="UNSPECIFIED" column-ref="COL48" name="id" physicalName="id" />
+    </index>
+    <index id="IDX56" populated="true" UUID="5441eb72-1da4-496d-8ecc-8e2930406d8e" clustered="false" name="goal_value_type_unique_title_idx" physicalName="goal_value_type_unique_title_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC57" populated="true" UUID="d410a9d7-07dc-4d5e-b35c-53201c1a4d93" ascendingOrDescending="UNSPECIFIED" column-ref="COL49" name="title" physicalName="title" />
+     <index-column id="IDC58" populated="true" UUID="3c2d91a3-732c-4e6d-9afb-13da3cb6e143" ascendingOrDescending="UNSPECIFIED" column-ref="COL51" name="org_goal_definition_id" physicalName="org_goal_definition_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB59" populated="true" UUID="2d90c9fb-606b-4732-883c-f6dc67fedb9f" name="goal_value_type_options" objectType="TABLE" physicalName="goal_value_type_options" >
+   <remarks>This table contains options for the goal value types</remarks>
+   <folder id="FOLTAB591" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL60" populated="true" UUID="13def92d-bd43-49f4-a7c8-8c3de55d2f56" autoIncrement="false" autoIncrementSequenceName="goal_value_type_options_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL61" populated="true" UUID="2a00db68-b608-4aee-afb3-6fe3eb845d50" autoIncrement="false" autoIncrementSequenceName="goal_value_type_id_seq" defaultValue="" name="goal_value_type_id" nullable="0" physicalName="goal_value_type_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The value type to which this option belongs.</remarks>
+    </column>
+    <column id="COL62" populated="true" UUID="f9ab2727-25a4-4cc6-8ccd-be19dd171d7f" autoIncrement="false" autoIncrementSequenceName="goal_value_type_options_title_seq" defaultValue="" name="title" nullable="0" physicalName="title" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>The name of the option, should be unique within the option type.</remarks>
+    </column>
+    <column id="COL63" populated="true" UUID="e3414876-e4b1-4b83-af9f-c6138af1d463" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The id of the creator of this option.</remarks>
+    </column>
+    <column id="COL64" populated="true" UUID="9e1c9d1e-9a38-49a7-a9d1-e0e004f887a1" autoIncrement="false" autoIncrementSequenceName="goal_value_type_options_option_value_seq" defaultValue="" name="option_value" nullable="0" physicalName="option_value" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="8" userDefinedTypeUUID="4fc90970-b2e5-41dd-911c-cc605d87e7a8" >
+     <remarks>The value of this option in numbers</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB593" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB592" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB594" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX65" populated="true" UUID="16bf90bc-cc1a-4709-a0e8-69c3c7d5f947" clustered="false" name="goal_value_type_options" physicalName="goal_value_type_options" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC66" populated="true" UUID="1312ba1a-5f68-447c-828d-d0c126b1f562" ascendingOrDescending="UNSPECIFIED" column-ref="COL60" name="id" physicalName="id" />
+    </index>
+    <index id="IDX67" populated="true" UUID="e4abe9a2-3054-4db4-b850-19320228c1ef" clustered="false" name="goal_value_type_options_unique_title_idx" physicalName="goal_value_type_options_unique_title_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC68" populated="true" UUID="808fe892-d326-4b17-8872-bc88e11bca04" ascendingOrDescending="UNSPECIFIED" column-ref="COL61" name="goal_value_type_id" physicalName="goal_value_type_id" />
+     <index-column id="IDC69" populated="true" UUID="1c8b611f-d021-4fe4-96cb-2fc78baae14d" ascendingOrDescending="UNSPECIFIED" column-ref="COL62" name="title" physicalName="title" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB70" populated="true" UUID="99c93349-2f84-4abb-ab9f-1e9fcf84e643" name="org_goal_domain" objectType="TABLE" physicalName="org_goal_domain" >
+   <remarks>This classifies a domain under which org goals are being defined.</remarks>
+   <folder id="FOLTAB701" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL71" populated="true" UUID="d84c3157-d94c-4cb3-9c23-e376c11d9c0a" autoIncrement="false" autoIncrementSequenceName="org_goal_domain_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The PK</remarks>
+    </column>
+    <column id="COL72" populated="true" UUID="0426373a-4c28-4048-88fb-c7ada3fead50" autoIncrement="false" autoIncrementSequenceName="org_goal_domain_title_seq" defaultValue="" name="title" nullable="0" physicalName="title" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>The title of the domain</remarks>
+    </column>
+    <column id="COL73" populated="true" UUID="b56c4131-65f5-4b2d-aa8d-722d03ec21c5" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The domain owner</remarks>
+    </column>
+    <column id="COL74" populated="true" UUID="3cf06dc8-f7fb-473f-9686-0c364c69a02e" autoIncrement="false" autoIncrementSequenceName="org_goal_domain_description_seq" defaultValue="" name="description" nullable="0" physicalName="description" precision="1024" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>The description of the domain.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB703" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB702" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB704" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX75" populated="true" UUID="f3c6550f-cfaf-462b-a4cd-0c56b7d60c09" clustered="false" name="org_goal_domain_pk" physicalName="org_goal_domain_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC76" populated="true" UUID="a5eeefa7-0e68-4fbc-a0aa-9db267b09892" ascendingOrDescending="UNSPECIFIED" column-ref="COL71" name="id" physicalName="id" />
+    </index>
+    <index id="IDX77" populated="true" UUID="4270d82e-de15-4c83-b399-9264f8fcab62" clustered="false" name="org_goal_domain_unique_domain_idx" physicalName="org_goal_domain_unique_domain_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC78" populated="true" UUID="81d89ba7-48c2-4455-9b7e-cc864698e4c4" ascendingOrDescending="UNSPECIFIED" column-ref="COL72" name="title" physicalName="title" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB79" populated="true" UUID="82cb651d-d371-429f-9e19-c0f0583d8cd3" name="goal_track_card" objectType="TABLE" physicalName="goal_track_card" >
+   <remarks>This is a record to track a goal of a particular type against one or more items.</remarks>
+   <folder id="FOLTAB791" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL80" populated="true" UUID="7e50ead2-217b-43be-9a40-176457f9fb0a" autoIncrement="false" autoIncrementSequenceName="goal_track_card_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The PK</remarks>
+    </column>
+    <column id="COL81" populated="true" UUID="240a9dc1-c38b-42c7-8719-5841030f3ed2" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The owner who owns this track card.</remarks>
+    </column>
+    <column id="COL82" populated="true" UUID="93470544-da98-4de5-8254-4204fefb9404" autoIncrement="false" autoIncrementSequenceName="org_goal_domain_id_seq" defaultValue="" name="org_goal_domain_id" nullable="0" physicalName="org_goal_domain_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The domain to which this card belongs.</remarks>
+    </column>
+    <column id="COL83" populated="true" UUID="b21debea-4123-4d4f-8c23-d8366dacad48" autoIncrement="false" autoIncrementSequenceName="base_org_goal_definition_id_seq" defaultValue="" name="base_org_goal_definition_id" nullable="0" physicalName="base_org_goal_definition_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The base goal that this card tracks.</remarks>
+    </column>
+    <column id="COL84" populated="true" UUID="6592e297-8c68-444d-89c4-76b8196a37fe" autoIncrement="false" autoIncrementSequenceName="goal_track_card_title_seq" defaultValue="" name="title" nullable="0" physicalName="title" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>The title for this card.</remarks>
+    </column>
+    <column id="COL85" populated="true" UUID="f1d02f48-171c-4cb0-8e12-b9a19f8a442f" autoIncrement="false" autoIncrementSequenceName="goal_track_card_description_seq" defaultValue="" name="description" nullable="0" physicalName="description" precision="1024" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Describe the tracking card.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB793" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB792" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB794" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX86" populated="true" UUID="99ac37de-4ebe-4eab-8acd-5d9b3efa6990" clustered="false" name="goal_track_card_pk" physicalName="goal_track_card_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC87" populated="true" UUID="986a3b81-9c91-4a57-b769-591dea125aeb" ascendingOrDescending="UNSPECIFIED" column-ref="COL80" name="id" physicalName="id" />
+    </index>
+    <index id="IDX88" populated="true" UUID="612285bf-9e13-49ed-b256-5e083a881790" clustered="false" name="goal_track_card_unique_title_idx" physicalName="goal_track_card_unique_title_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC89" populated="true" UUID="2d50034f-5ad7-4e43-b2be-dd8f1229a50a" ascendingOrDescending="UNSPECIFIED" column-ref="COL82" name="org_goal_domain_id" physicalName="org_goal_domain_id" />
+     <index-column id="IDC90" populated="true" UUID="6fffb024-7907-4fbf-b9f6-b5394dbc62f6" ascendingOrDescending="UNSPECIFIED" column-ref="COL84" name="title" physicalName="title" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB91" populated="true" UUID="bf8705f6-7dda-4b99-ad70-bbd4f0c4e224" name="tracked_item" objectType="TABLE" physicalName="tracked_item" >
+   <remarks>This is the table for a tracked item.</remarks>
+   <folder id="FOLTAB911" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL92" populated="true" UUID="0ae0766b-144c-42f8-8936-c9023c01065c" autoIncrement="false" autoIncrementSequenceName="tracked_item_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The PK</remarks>
+    </column>
+    <column id="COL93" populated="true" UUID="e8e06d7d-c57e-47a6-a776-3567d9c3e590" autoIncrement="false" autoIncrementSequenceName="tracked_item_unique_name_seq" defaultValue="" name="unique_name" nullable="0" physicalName="unique_name" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>The unique name of the item being tracked.</remarks>
+    </column>
+    <column id="COL94" populated="true" UUID="26020d9a-3323-44db-b048-4f90e5801824" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The owner of the item</remarks>
+    </column>
+    <column id="COL95" populated="true" UUID="88ffa846-9910-412d-8aa4-14605bef6ca1" autoIncrement="false" autoIncrementSequenceName="tracked_item_description_seq" defaultValue="" name="description" nullable="0" physicalName="description" precision="1024" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>The description of the item being tracked.</remarks>
+    </column>
+    <column id="COL96" populated="true" UUID="58618ac8-f2ef-47c0-a5f5-c6a917dda656" autoIncrement="false" autoIncrementSequenceName="owning_org_goal_domain_id_seq" defaultValue="" name="owning_org_goal_domain_id" nullable="1" physicalName="owning_org_goal_domain_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The domain to which this item belongs. If null, then it means it is global item.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB913" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB912" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB914" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX97" populated="true" UUID="71a1a4c5-bc69-4b26-a920-c56906f8d09b" clustered="false" name="tracked_item_pk" physicalName="tracked_item_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC98" populated="true" UUID="f1cc3935-ab5a-46ca-a03f-c0a9e659d8d4" ascendingOrDescending="UNSPECIFIED" column-ref="COL92" name="id" physicalName="id" />
+    </index>
+    <index id="IDX99" populated="true" UUID="d39fbcdf-37fc-4b48-b7c4-dca70c049b51" clustered="false" name="tracked_item_unique_idx" physicalName="tracked_item_unique_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC100" populated="true" UUID="4469a722-cef7-411f-89b7-0668ed6e5a18" ascendingOrDescending="UNSPECIFIED" column-ref="COL93" name="unique_name" physicalName="unique_name" />
+     <index-column id="IDC101" populated="true" UUID="3c2fbc92-46bd-4503-a4e6-a521399e6a49" ascendingOrDescending="UNSPECIFIED" column-ref="COL96" name="owning_org_goal_domain_id" physicalName="owning_org_goal_domain_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB102" populated="true" UUID="92127d90-3ee6-423b-a9a5-52b94b5554e5" name="tracked_item_to_card" objectType="TABLE" physicalName="tracked_item_to_card" >
+   <remarks>Relationship table to track an item to a card.</remarks>
+   <folder id="FOLTAB1021" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL103" populated="true" UUID="c3cf0061-30e3-4d4f-a81a-76464fc0c65a" autoIncrement="false" autoIncrementSequenceName="tracked_item_to_card_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>The PK</remarks>
+    </column>
+    <column id="COL104" populated="true" UUID="f8a0149a-2507-46a8-80e8-4061999b8c5d" autoIncrement="false" autoIncrementSequenceName="goal_track_card_id_seq" defaultValue="" name="goal_track_card_id" nullable="0" physicalName="goal_track_card_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The PK</remarks>
+    </column>
+    <column id="COL105" populated="true" UUID="a5eadce8-dd91-4902-8da6-6b528e4387f3" autoIncrement="false" autoIncrementSequenceName="tracked_item_id_seq" defaultValue="" name="tracked_item_id" nullable="0" physicalName="tracked_item_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The PK</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1023" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1022" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1024" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX106" populated="true" UUID="41bc5556-40bb-4c38-9dc0-fb14621ccc26" clustered="false" name="tracked_item_to_card_pk" physicalName="tracked_item_to_card_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC107" populated="true" UUID="2c4b5572-0e80-49ca-9fce-4a1b9700fda2" ascendingOrDescending="UNSPECIFIED" column-ref="COL103" name="id" physicalName="id" />
+    </index>
+    <index id="IDX108" populated="true" UUID="c82b09f1-47cb-4049-bdd1-5d5484301448" clustered="false" name="tracked_item_to_card_unique_idx" physicalName="tracked_item_to_card_unique_idx" primaryKeyIndex="false" unique="false" >
+     <index-column id="IDC109" populated="true" UUID="5e9dce33-5cca-41b8-baf7-b6fda413f283" ascendingOrDescending="UNSPECIFIED" column-ref="COL104" name="goal_track_card_id" physicalName="goal_track_card_id" />
+     <index-column id="IDC110" populated="true" UUID="a82602fe-8e85-4d29-8ff9-5f47358eb719" ascendingOrDescending="UNSPECIFIED" column-ref="COL105" name="tracked_item_id" physicalName="tracked_item_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB111" populated="true" UUID="3cc877be-79d5-48a4-a927-630c6f885f48" name="tracked_item_goal" objectType="TABLE" physicalName="tracked_item_goal" >
+   <remarks>The actual value table where the tracked_items goal value is stored and tracked.</remarks>
+   <folder id="FOLTAB1111" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL112" populated="true" UUID="41448eaf-48cb-4e25-a675-58b4a6a23a03" autoIncrement="false" autoIncrementSequenceName="tracked_item_goal_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The PK</remarks>
+    </column>
+    <column id="COL113" populated="true" UUID="6062a699-8b7e-4378-9908-f811749c6743" autoIncrement="false" autoIncrementSequenceName="tracked_item_id_seq" defaultValue="" name="tracked_item_id" nullable="0" physicalName="tracked_item_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The PK</remarks>
+    </column>
+    <column id="COL114" populated="true" UUID="385d4ed0-a914-4102-b219-fd7695f3197f" autoIncrement="false" autoIncrementSequenceName="org_goal_definition_id_seq" defaultValue="" name="org_goal_definition_id" nullable="0" physicalName="org_goal_definition_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The PK.</remarks>
+    </column>
+    <column id="COL115" populated="true" UUID="38c42bed-61e2-469b-b4a0-5be2d2039bc1" autoIncrement="false" autoIncrementSequenceName="tracked_item_goal_current_value_seq" defaultValue="" name="current_value" nullable="0" physicalName="current_value" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="8" userDefinedTypeUUID="4fc90970-b2e5-41dd-911c-cc605d87e7a8" >
+     <remarks>The current value of the item, -1 or NULL means not yet defined.</remarks>
+    </column>
+    <column id="COL116" populated="true" UUID="80b07b36-62aa-4ba1-8244-dd021290ff43" autoIncrement="false" autoIncrementSequenceName="last_uptated_by_client_account_id_seq" defaultValue="" name="last_updated_by_client_account_id" nullable="0" physicalName="last_uptated_by_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The value was last updated by which id.. It is nullable especially when it is never updated..</remarks>
+    </column>
+    <column id="COL117" populated="true" UUID="89af7dc3-064e-405d-b1f9-2e0cc8b30bc3" autoIncrement="false" autoIncrementSequenceName="tracked_item_goal_last_updated_time_seq" defaultValue="" name="last_updated_time" nullable="0" physicalName="last_updated_time" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks>The date/time when it was last updated.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1113" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1112" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1114" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX118" populated="true" UUID="d241acf4-ae8e-428b-8e1d-581b8ed1bcbb" clustered="false" name="tracked_item_goal_pk" physicalName="tracked_item_goal_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC119" populated="true" UUID="3982b3e8-1fcd-4c34-a2e7-6f2875786040" ascendingOrDescending="UNSPECIFIED" column-ref="COL112" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB120" populated="true" UUID="df7a1c62-e264-4b3f-8236-1126a00de472" name="tracked_item_goal_history" objectType="TABLE" physicalName="tracked_item_goal_history" >
+   <remarks>The history of a tracked item.</remarks>
+   <folder id="FOLTAB1201" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL121" populated="true" UUID="a6dcf309-eb27-4c4d-9c14-28f52b86dda1" autoIncrement="false" autoIncrementSequenceName="tracked_item_goal_history_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The PK</remarks>
+    </column>
+    <column id="COL122" populated="true" UUID="b467e626-a4a2-40ab-ade5-7df37e59c283" autoIncrement="false" autoIncrementSequenceName="tracked_item_goal_history_historical_value_seq" defaultValue="" name="historical_value" nullable="0" physicalName="historical_value" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="8" userDefinedTypeUUID="4fc90970-b2e5-41dd-911c-cc605d87e7a8" >
+     <remarks>The value of what it was</remarks>
+    </column>
+    <column id="COL123" populated="true" UUID="09ef96e6-c7f7-4c34-989b-6cd7c729db99" autoIncrement="false" autoIncrementSequenceName="tracked_item_goal_history_at_time_seq" defaultValue="" name="at_time" nullable="0" physicalName="at_time" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks>at what time did it have this value..</remarks>
+    </column>
+    <column id="COL124" populated="true" UUID="fb4171ef-1b50-47f0-801c-8a40c1421f64" autoIncrement="false" autoIncrementSequenceName="tracked_item_goal_id_seq" defaultValue="" name="tracked_item_goal_id" nullable="0" physicalName="tracked_item_goal_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>The PK</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1203" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1202" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1204" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX125" populated="true" UUID="f3d42726-5af5-4ca8-aff2-6198ea59de3a" clustered="false" name="tracked_item_goal_history_pk" physicalName="tracked_item_goal_history_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC126" populated="true" UUID="05a23329-6d24-429b-90ea-eb673228e0d2" ascendingOrDescending="UNSPECIFIED" column-ref="COL121" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB127" populated="true" UUID="7d40a3ac-83b5-431b-bfac-efa9e28a33f2" name="goal_management_audit_log" objectType="TABLE" physicalName="goal_management_audit_log" >
+   <remarks>A generic audit_log_table to track what is going
+on in the database.</remarks>
+   <folder id="FOLTAB1271" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL128" populated="true" UUID="e882aaaf-f30d-4bbf-b5b4-e50222430665" autoIncrement="false" autoIncrementSequenceName="goal_management_audit_log_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL129" populated="true" UUID="dbb9426e-7e24-4d9a-ba8f-c71e26d8d5c7" autoIncrement="false" autoIncrementSequenceName="goal_management_audit_log_action_seq" defaultValue="" name="action" nullable="0" physicalName="action" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>What kind of action happened..?</remarks>
+    </column>
+    <column id="COL130" populated="true" UUID="801a6487-002d-471b-8c3f-12b016b109c8" autoIncrement="false" autoIncrementSequenceName="goal_management_audit_log_resource_seq" defaultValue="" name="resource" nullable="0" physicalName="resource" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>On what resource?</remarks>
+    </column>
+    <column id="COL131" populated="true" UUID="2451104d-62ed-45d6-b196-85650bbfbffd" autoIncrement="false" autoIncrementSequenceName="goal_management_audit_log_at_time_seq" defaultValue="" name="at_time" nullable="0" physicalName="at_time" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks>At what date/time ?</remarks>
+    </column>
+    <column id="COL132" populated="true" UUID="b1116ba9-4a55-4358-b720-bb56652ba4a1" autoIncrement="false" autoIncrementSequenceName="goal_management_audit_log_by_client_account_id_seq" defaultValue="" name="by_client_account_id" nullable="0" physicalName="by_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL133" populated="true" UUID="eeac2973-a434-4b7e-a092-e9cd32ce8818" autoIncrement="false" autoIncrementSequenceName="goal_management_audit_log_client_unique_display_name_seq" defaultValue="" name="client_unique_display_name" nullable="0" physicalName="client_unique_display_name" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>The unique display name of the client</remarks>
+    </column>
+    <column id="COL134" populated="true" UUID="654980f0-44e4-4f5c-a5e0-a314af1e0d25" autoIncrement="false" autoIncrementSequenceName="goal_management_audit_log_original_record_seq" defaultValue="" name="original_record" nullable="1" physicalName="original_record" precision="1024" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>The original record. Could be a JSON object</remarks>
+    </column>
+    <column id="COL135" populated="true" UUID="60d18b0c-6bc8-4902-892f-0d081e6ff3db" autoIncrement="false" autoIncrementSequenceName="goal_management_audit_log_final_record_seq" defaultValue="" name="final_record" nullable="0" physicalName="final_record" precision="1024" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>The final record.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1273" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1272" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1274" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX136" populated="true" UUID="7bcd2974-7a7a-41df-9baa-91e1957bda56" clustered="false" name="goal_management_audit_log_pk" physicalName="goal_management_audit_log_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC137" populated="true" UUID="f00f687e-7b39-4fee-bab6-cb62f1f6d410" ascendingOrDescending="UNSPECIFIED" column-ref="COL128" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
+  <relationships>
+   <relationship id="REL138" populated="true" UUID="7d78c161-7b77-4e86-8fd1-4107d4b85af0" deferrability="7" deleteRule="3" fk-table-ref="TAB24" fkCardinality="7" identifying="false" name="client_identity_client_identities_fk1" physicalName="client_identity_client_identities_fk1" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP139" populated="true" UUID="1494a217-fffa-4848-8eb8-7c16bbb0b462" fk-column-ref="COL27" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+   </relationship>
+   <relationship id="REL140" populated="true" UUID="e8e82414-f074-4431-98c0-4a9176472c69" deferrability="7" deleteRule="3" fk-table-ref="TAB24" fkCardinality="7" identifying="false" name="client_account_client_identities_fk1" physicalName="client_account_client_identities_fk1" pk-table-ref="TAB11" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP141" populated="true" UUID="b021a6a5-4c21-4007-8e16-0e19224ae333" fk-column-ref="COL26" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL12" />
+   </relationship>
+   <relationship id="REL142" populated="true" UUID="e3bddac1-13b3-4b89-92ca-efe666fc54a6" deferrability="7" deleteRule="3" fk-table-ref="TAB33" fkCardinality="7" identifying="false" name="client_account_org_goal_definition_fk" physicalName="client_account_org_goal_definition_fk" pk-table-ref="TAB11" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP143" populated="true" UUID="1c2a4bcf-3e1f-45f3-b78d-d597b7c3c79a" fk-column-ref="COL34" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL12" />
+   </relationship>
+   <relationship id="REL144" populated="true" UUID="edf49b89-402d-4c3c-9f78-9869e077447f" deferrability="7" deleteRule="3" fk-table-ref="TAB33" fkCardinality="7" identifying="false" name="client_account_org_goal_definition_fk1" physicalName="client_account_org_goal_definition_fk1" pk-table-ref="TAB11" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP145" populated="true" UUID="8c17bc07-a423-49e7-aec4-7bc0c226d7ac" fk-column-ref="COL39" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL12" />
+   </relationship>
+   <relationship id="REL146" populated="true" UUID="664c1ff7-eca3-44d7-8e7d-9286c4087e09" deferrability="7" deleteRule="3" fk-table-ref="TAB47" fkCardinality="7" identifying="false" name="client_account_goal_value_type_fk1" physicalName="client_account_goal_value_type_fk1" pk-table-ref="TAB11" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP147" populated="true" UUID="5c833109-6042-4c21-87d7-8de77b0e8b54" fk-column-ref="COL50" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL12" />
+   </relationship>
+   <relationship id="REL148" populated="true" UUID="c90625d5-f847-4788-a189-8c3301e669f0" deferrability="7" deleteRule="3" fk-table-ref="TAB70" fkCardinality="7" identifying="false" name="client_account_org_goal_domain_fk1" physicalName="client_account_org_goal_domain_fk1" pk-table-ref="TAB11" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP149" populated="true" UUID="fdb59426-064f-4d00-9ce1-1cfeec3d0285" fk-column-ref="COL73" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL12" />
+   </relationship>
+   <relationship id="REL150" populated="true" UUID="be026f85-7bf4-4c54-9089-d552f6ee54aa" deferrability="7" deleteRule="3" fk-table-ref="TAB59" fkCardinality="7" identifying="false" name="client_account_goal_value_type_options_fk1" physicalName="client_account_goal_value_type_options_fk1" pk-table-ref="TAB11" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP151" populated="true" UUID="bf7fb300-32c2-4efb-8fdf-c8afce3473ca" fk-column-ref="COL63" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL12" />
+   </relationship>
+   <relationship id="REL152" populated="true" UUID="9a6af5c7-521f-475b-963d-97211992f916" deferrability="7" deleteRule="3" fk-table-ref="TAB79" fkCardinality="7" identifying="false" name="client_account_goal_track_card_fk1" physicalName="client_account_goal_track_card_fk1" pk-table-ref="TAB11" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP153" populated="true" UUID="59073cc6-74f8-4555-8585-a174fcbd1091" fk-column-ref="COL81" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL12" />
+   </relationship>
+   <relationship id="REL154" populated="true" UUID="e9c58f44-4a57-4ba1-8ef9-1767fc42ebee" deferrability="7" deleteRule="3" fk-table-ref="TAB91" fkCardinality="7" identifying="false" name="client_account_tracked_item_fk1" physicalName="client_account_tracked_item_fk1" pk-table-ref="TAB11" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP155" populated="true" UUID="71cb5f45-8600-4ab3-bae2-9243ff83c34e" fk-column-ref="COL94" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL12" />
+   </relationship>
+   <relationship id="REL156" populated="true" UUID="59e20da7-3d78-4ad6-a921-c51d16f92e7a" deferrability="7" deleteRule="3" fk-table-ref="TAB111" fkCardinality="7" identifying="false" name="client_account_tracked_item_goal_fk1" physicalName="client_account_tracked_item_goal_fk1" pk-table-ref="TAB11" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP157" populated="true" UUID="98c25643-30fb-4b73-953f-50b31e3a51e3" fk-column-ref="COL116" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL12" />
+   </relationship>
+   <relationship id="REL158" populated="true" UUID="cf511ce3-66d1-4a7f-bdd3-caa0a599d9ce" deferrability="7" deleteRule="3" fk-table-ref="TAB47" fkCardinality="7" identifying="false" name="org_goal_definition_goal_value_type_fk1" physicalName="org_goal_definition_goal_value_type_fk1" pk-table-ref="TAB33" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP159" populated="true" UUID="3083e142-7fdb-4a2b-91c8-b25a43cc75ff" fk-column-ref="COL51" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL34" />
+   </relationship>
+   <relationship id="REL160" populated="true" UUID="577247df-748e-4f74-a49d-2be81be843f9" deferrability="7" deleteRule="3" fk-table-ref="TAB33" fkCardinality="7" identifying="false" name="org_goal_definition_org_goal_definition_fk" physicalName="org_goal_definition_org_goal_definition_fk" pk-table-ref="TAB33" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP161" populated="true" UUID="08e8e803-3701-4ff0-80c0-fbbdf7ed903a" fk-column-ref="COL41" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL34" />
+   </relationship>
+   <relationship id="REL162" populated="true" UUID="25456892-c964-4ae5-a321-ac3e21b664ec" deferrability="7" deleteRule="3" fk-table-ref="TAB79" fkCardinality="7" identifying="false" name="org_goal_definition_goal_track_card_fk1" physicalName="org_goal_definition_goal_track_card_fk1" pk-table-ref="TAB33" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP163" populated="true" UUID="0eec50c5-8d09-4028-99fb-497c34ae6005" fk-column-ref="COL83" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL34" />
+   </relationship>
+   <relationship id="REL164" populated="true" UUID="91b95457-9296-4d99-b403-547bfc76a904" deferrability="7" deleteRule="3" fk-table-ref="TAB111" fkCardinality="7" identifying="false" name="org_goal_definition_tracked_item_goal_fk1" physicalName="org_goal_definition_tracked_item_goal_fk1" pk-table-ref="TAB33" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP165" populated="true" UUID="8ca18e6d-81a8-4079-91b9-724975a030ad" fk-column-ref="COL114" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL34" />
+   </relationship>
+   <relationship id="REL166" populated="true" UUID="9cf8587e-0e56-4776-b868-3cfca855a7f7" deferrability="7" deleteRule="3" fk-table-ref="TAB59" fkCardinality="7" identifying="false" name="goal_value_type_goal_value_type_options_fk1" physicalName="goal_value_type_goal_value_type_options_fk1" pk-table-ref="TAB47" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP167" populated="true" UUID="98732311-bb26-41cf-902c-3dd4a8c74b60" fk-column-ref="COL61" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL48" />
+   </relationship>
+   <relationship id="REL168" populated="true" UUID="f0c87ea7-b5f5-4a98-a990-3b33de3ab49a" deferrability="7" deleteRule="3" fk-table-ref="TAB33" fkCardinality="7" identifying="false" name="org_goal_domain_org_goal_definition_fk1" physicalName="org_goal_domain_org_goal_definition_fk1" pk-table-ref="TAB70" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP169" populated="true" UUID="34045bc7-9ddf-41e9-8eae-d9fee703f5c7" fk-column-ref="COL40" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL71" />
+   </relationship>
+   <relationship id="REL170" populated="true" UUID="40a9d48b-cad8-4457-86fb-4d8d61d17724" deferrability="7" deleteRule="3" fk-table-ref="TAB47" fkCardinality="7" identifying="false" name="org_goal_domain_goal_value_type_fk1" physicalName="org_goal_domain_goal_value_type_fk1" pk-table-ref="TAB70" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP171" populated="true" UUID="2edb8507-1cc6-475a-a327-0cc29005e669" fk-column-ref="COL53" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL71" />
+   </relationship>
+   <relationship id="REL172" populated="true" UUID="76dbf9e3-2cf6-4e9a-9f32-86db0c8432ec" deferrability="7" deleteRule="3" fk-table-ref="TAB79" fkCardinality="7" identifying="false" name="org_goal_domain_goal_track_card_fk1" physicalName="org_goal_domain_goal_track_card_fk1" pk-table-ref="TAB70" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP173" populated="true" UUID="463574e9-bd0c-4f2b-99f3-8d6579d6226f" fk-column-ref="COL82" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL71" />
+   </relationship>
+   <relationship id="REL174" populated="true" UUID="b266a7cc-d629-40b1-a506-67da101ad6bf" deferrability="7" deleteRule="3" fk-table-ref="TAB91" fkCardinality="7" identifying="false" name="org_goal_domain_tracked_item_fk1" physicalName="org_goal_domain_tracked_item_fk1" pk-table-ref="TAB70" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP175" populated="true" UUID="8c4ba0d9-becc-4dcc-8ef5-70d207f7f4e1" fk-column-ref="COL96" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL71" />
+   </relationship>
+   <relationship id="REL176" populated="true" UUID="54b3e750-242d-4a84-9186-1e86cd4591d1" deferrability="7" deleteRule="3" fk-table-ref="TAB102" fkCardinality="7" identifying="false" name="goal_track_card_tracked_item_to_card_fk" physicalName="goal_track_card_tracked_item_to_card_fk" pk-table-ref="TAB79" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP177" populated="true" UUID="c1e97052-93b2-4432-afc0-640c546e72d6" fk-column-ref="COL104" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL80" />
+   </relationship>
+   <relationship id="REL178" populated="true" UUID="63073c96-bd21-4050-aea0-797a4b1d4f1b" deferrability="7" deleteRule="3" fk-table-ref="TAB102" fkCardinality="7" identifying="false" name="tracked_item_tracked_item_to_card_fk" physicalName="tracked_item_tracked_item_to_card_fk" pk-table-ref="TAB91" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP179" populated="true" UUID="afa0da83-a2fd-424f-a0ef-28eb09457ec5" fk-column-ref="COL105" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL92" />
+   </relationship>
+   <relationship id="REL180" populated="true" UUID="50e806b0-8765-4b6e-ae83-1d5ec3036177" deferrability="7" deleteRule="3" fk-table-ref="TAB111" fkCardinality="7" identifying="false" name="tracked_item_tracked_item_goal_fk1" physicalName="tracked_item_tracked_item_goal_fk1" pk-table-ref="TAB91" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP181" populated="true" UUID="6194e980-5dda-48e5-9f90-6bd0eb7a6870" fk-column-ref="COL113" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL92" />
+   </relationship>
+   <relationship id="REL182" populated="true" UUID="aac33ee6-7701-4745-affe-56987c5726e3" deferrability="7" deleteRule="3" fk-table-ref="TAB120" fkCardinality="7" identifying="false" name="tracked_item_goal_tracked_item_goal_history_fk1" physicalName="tracked_item_goal_tracked_item_goal_history_fk1" pk-table-ref="TAB111" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP183" populated="true" UUID="64106e70-2b3a-47f7-8bdb-b434bc2af9c2" fk-column-ref="COL124" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL112" />
+   </relationship>
+  </relationships>
+ </target-database>
+ <ddl-generator type="ca.sqlpower.architect.ddl.GenericDDLGenerator" allow-connection="true"> </ddl-generator>
+ <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
+ <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
+ <play-pen zoom="1.189207115002721" viewportX="0" viewportY="469" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+  <table-pane table-ref="TAB1" x="121" y="116" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB11" x="717" y="207" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB24" x="525" y="73" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB33" x="406" y="376" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB47" x="754" y="594" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB59" x="1026" y="361" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB70" x="40" y="381" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB79" x="25" y="592" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB91" x="345" y="748" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB102" x="25" y="765" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB111" x="729" y="766" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB120" x="1197" y="649" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB127" x="25" y="864" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL140" pkConnection="0.038314176245210725" fkConnection="0.8319672131147541" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL138" pkConnection="0.175" fkConnection="0.8507462686567164" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL142" pkConnection="0.9150943396226415" fkConnection="0.3705357142857143" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="130"/>
+  <table-link relationship-ref="REL144" pkConnection="0.2413793103448276" fkConnection="0.8679245283018868" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="20"/>
+  <table-link relationship-ref="REL146" pkConnection="0.7547892720306514" fkConnection="0.5880149812734082" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL158" pkConnection="0.8088235294117647" fkConnection="0.6375" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="36"/>
+  <table-link relationship-ref="REL166" pkConnection="0.8382352941176471" fkConnection="0.3360323886639676" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL148" pkConnection="0.5188679245283019" fkConnection="0.3403361344537815" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="130"/>
+  <table-link relationship-ref="REL168" pkConnection="0.65" fkConnection="0.4369747899159664" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL150" pkConnection="0.9386973180076629" fkConnection="0.1541501976284585" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL170" pkConnection="0.875" fkConnection="0.8301886792452831" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL160" pkConnection="0.5" fkConnection="0.25" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="36"/>
+  <table-link relationship-ref="REL152" pkConnection="0.09578544061302682" fkConnection="0.14150943396226415" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="20"/>
+  <table-link relationship-ref="REL172" pkConnection="0.48161764705882354" fkConnection="0.5110294117647058" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL162" pkConnection="0.7727272727272727" fkConnection="0.20209059233449478" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="130"/>
+  <table-link relationship-ref="REL154" pkConnection="0.3486590038314176" fkConnection="0.6008403361344538" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL174" pkConnection="0.797752808988764" fkConnection="0.5053763440860215" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="36"/>
+  <table-link relationship-ref="REL176" pkConnection="0.4412811387900356" fkConnection="0.5102880658436214" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL178" pkConnection="0.40860215053763443" fkConnection="0.31343283582089554" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL180" pkConnection="0.7204301075268817" fkConnection="0.46296296296296297" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL164" pkConnection="0.7116104868913857" fkConnection="0.3858267716535433" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL156" pkConnection="0.6484375" fkConnection="0.49606299212598426" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL182" pkConnection="0.8207547169811321" fkConnection="0.875" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
+ </play-pen>
+ <critic-manager>
+  <critic-grouping platformType="Generic" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PrimaryKeyCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.RelationshipMappingTypeCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.EmptyRelationshipCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericSequenceNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetDefaultOnColumnWithNoDefaultCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetNullOnNonNullableColumnCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DuplicateNameCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="DB2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DB2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="H2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.H2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="HSQLDB" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.HSQLDBUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="MySQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLCommentCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="Oracle" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OraclePhysicalNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="PostgreSQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PostgreSQLReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerUnsupportedFeaturesCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2000" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2000UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2005" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2005UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+ </critic-manager>
+ <profiles topNCount="10">
+  </profiles>
+  <olap>
+  </olap>
+  <olap-gui>
+  </olap-gui>
+</architect-project>
