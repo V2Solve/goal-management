@@ -1,0 +1,2 @@
+docker volume create v2solve_goal_mgmt_db_data
+docker run -d -p 5432:5432 --name v2s_goal_mgmt_db -e POSTGRES_PASSWORD=password -e PGDATA=/var/lib/postgresql/data/pgdata -v v2solve_goal_mgmt_db_data:/var/lib/postgresql/data v2s-goal-mgmt-db:1.0

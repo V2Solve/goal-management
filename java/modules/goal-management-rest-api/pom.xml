@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.v2solve.goal.management</groupId>
+  <artifactId>goal-management-rest-api</artifactId>
+  <version>233.1.0.RELEASE</version>
+  <name>goal-management-rest-api</name>
+  
+  <parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.3.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+  </parent>
+  
+  <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <dependencies>
+
+  <dependency>  
+	  <groupId>com.v2solve.commons.java</groupId>
+	  <artifactId>v2solve-commons-java</artifactId>
+	  <version>233.1.0.RELEASE</version>
+  </dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+	<dependency>
+	    <groupId>org.projectlombok</groupId>
+	    <artifactId>lombok</artifactId>
+	    <scope>provided</scope>
+	</dependency>
+  
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-json</artifactId>
+	</dependency>
+
+	
+  </dependencies>
+  
+<distributionManagement>
+   <repository>
+     <id>github</id>
+     <name>GitHub OWNER Apache Maven Packages</name>
+     <url>https://maven.pkg.github.com/V2Solve/goal-management</url>
+   </repository>
+</distributionManagement>  
+  
+</project>

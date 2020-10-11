@@ -130,7 +130,7 @@ Goals definitions in draft state may not be shared across the enterprise..</rema
     <column id="COL40" populated="true" UUID="ba657a61-d3a9-4b22-95a1-90a6e544fd74" autoIncrement="false" autoIncrementSequenceName="org_goal_domain_id_seq" defaultValue="" name="org_goal_domain_id" nullable="0" physicalName="org_goal_domain_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The domain to which this goal belongs.</remarks>
     </column>
-    <column id="COL41" populated="true" UUID="62a8e803-16ae-4433-b1fe-750fedbdd499" autoIncrement="false" autoIncrementSequenceName="org_goal_definition_id_seq" defaultValue="" name="Parent_id" nullable="1" physicalName="Parent_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL41" populated="true" UUID="62a8e803-16ae-4433-b1fe-750fedbdd499" autoIncrement="false" autoIncrementSequenceName="org_goal_definition_id_seq_1" defaultValue="" name="Parent_id" nullable="1" physicalName="Parent_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>If this is a SUB Goal, then the parent id of the sub goal. If this is a top level goal, then this would be null..</remarks>
     </column>
     </folder>
@@ -157,16 +157,16 @@ Goals definitions in draft state may not be shared across the enterprise..</rema
     <column id="COL49" populated="true" UUID="ff83ead9-4246-41d8-8398-b887c1c427de" autoIncrement="false" autoIncrementSequenceName="goal_value_type_title_seq" defaultValue="" name="title" nullable="0" physicalName="title" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>The value type definition for a goal.</remarks>
     </column>
-    <column id="COL50" populated="true" UUID="f71550ef-c11d-4c36-9ed5-d7ad01f4528c" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL50" populated="true" UUID="f71550ef-c11d-4c36-9ed5-d7ad01f4528c" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq_1" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The person defining this value type. If the</remarks>
     </column>
-    <column id="COL51" populated="true" UUID="bb6e3e34-a478-4059-a553-ae566e26aff4" autoIncrement="false" autoIncrementSequenceName="org_goal_definition_id_seq" defaultValue="" name="org_goal_definition_id" nullable="1" physicalName="org_goal_definition_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL51" populated="true" UUID="bb6e3e34-a478-4059-a553-ae566e26aff4" autoIncrement="false" autoIncrementSequenceName="org_goal_definition_id_seq_2" defaultValue="" name="org_goal_definition_id" nullable="1" physicalName="org_goal_definition_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>If null, then it means that this goal_value_type can be used in any goal. If not null, it could mean that it could be only used in this chain and below or something like that.</remarks>
     </column>
     <column id="COL52" populated="true" UUID="9a7d60ea-0dd7-446d-b3d0-3b83e8bc8edb" autoIncrement="false" autoIncrementSequenceName="goal_value_type_goal_definition_state_seq" defaultValue="" name="goal_definition_state" nullable="0" physicalName="goal_definition_state" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>This could be a state, such as draft, or approved, or active.. etc.</remarks>
     </column>
-    <column id="COL53" populated="true" UUID="dbcc1596-6fa2-45b2-8c10-1144a63d58da" autoIncrement="false" autoIncrementSequenceName="org_goal_domain_id_seq" defaultValue="" name="org_goal_domain_id" nullable="0" physicalName="org_goal_domain_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL53" populated="true" UUID="dbcc1596-6fa2-45b2-8c10-1144a63d58da" autoIncrement="false" autoIncrementSequenceName="org_goal_domain_id_seq_1" defaultValue="" name="org_goal_domain_id" nullable="0" physicalName="org_goal_domain_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The domain it belongs to, or NULL if it is global.</remarks>
     </column>
     </folder>
@@ -190,13 +190,13 @@ Goals definitions in draft state may not be shared across the enterprise..</rema
     <column id="COL60" populated="true" UUID="13def92d-bd43-49f4-a7c8-8c3de55d2f56" autoIncrement="false" autoIncrementSequenceName="goal_value_type_options_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks></remarks>
     </column>
-    <column id="COL61" populated="true" UUID="2a00db68-b608-4aee-afb3-6fe3eb845d50" autoIncrement="false" autoIncrementSequenceName="goal_value_type_id_seq" defaultValue="" name="goal_value_type_id" nullable="0" physicalName="goal_value_type_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL61" populated="true" UUID="2a00db68-b608-4aee-afb3-6fe3eb845d50" autoIncrement="false" autoIncrementSequenceName="goal_value_type_id_seq_1" defaultValue="" name="goal_value_type_id" nullable="0" physicalName="goal_value_type_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The value type to which this option belongs.</remarks>
     </column>
     <column id="COL62" populated="true" UUID="f9ab2727-25a4-4cc6-8ccd-be19dd171d7f" autoIncrement="false" autoIncrementSequenceName="goal_value_type_options_title_seq" defaultValue="" name="title" nullable="0" physicalName="title" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>The name of the option, should be unique within the option type.</remarks>
     </column>
-    <column id="COL63" populated="true" UUID="e3414876-e4b1-4b83-af9f-c6138af1d463" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL63" populated="true" UUID="e3414876-e4b1-4b83-af9f-c6138af1d463" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq_2" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The id of the creator of this option.</remarks>
     </column>
     <column id="COL64" populated="true" UUID="9e1c9d1e-9a38-49a7-a9d1-e0e004f887a1" autoIncrement="false" autoIncrementSequenceName="goal_value_type_options_option_value_seq" defaultValue="" name="option_value" nullable="0" physicalName="option_value" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="8" userDefinedTypeUUID="4fc90970-b2e5-41dd-911c-cc605d87e7a8" >
@@ -220,13 +220,13 @@ Goals definitions in draft state may not be shared across the enterprise..</rema
   <table id="TAB70" populated="true" UUID="99c93349-2f84-4abb-ab9f-1e9fcf84e643" name="org_goal_domain" objectType="TABLE" physicalName="org_goal_domain" >
    <remarks>This classifies a domain under which org goals are being defined.</remarks>
    <folder id="FOLTAB701" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL71" populated="true" UUID="d84c3157-d94c-4cb3-9c23-e376c11d9c0a" autoIncrement="false" autoIncrementSequenceName="org_goal_domain_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL71" populated="true" UUID="d84c3157-d94c-4cb3-9c23-e376c11d9c0a" autoIncrement="false" autoIncrementSequenceName="org_goal_domain_id_seq_2" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The PK</remarks>
     </column>
     <column id="COL72" populated="true" UUID="0426373a-4c28-4048-88fb-c7ada3fead50" autoIncrement="false" autoIncrementSequenceName="org_goal_domain_title_seq" defaultValue="" name="title" nullable="0" physicalName="title" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>The title of the domain</remarks>
     </column>
-    <column id="COL73" populated="true" UUID="b56c4131-65f5-4b2d-aa8d-722d03ec21c5" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL73" populated="true" UUID="b56c4131-65f5-4b2d-aa8d-722d03ec21c5" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq_3" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The domain owner</remarks>
     </column>
     <column id="COL74" populated="true" UUID="3cf06dc8-f7fb-473f-9686-0c364c69a02e" autoIncrement="false" autoIncrementSequenceName="org_goal_domain_description_seq" defaultValue="" name="description" nullable="0" physicalName="description" precision="1024" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -252,10 +252,10 @@ Goals definitions in draft state may not be shared across the enterprise..</rema
     <column id="COL80" populated="true" UUID="7e50ead2-217b-43be-9a40-176457f9fb0a" autoIncrement="false" autoIncrementSequenceName="goal_track_card_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The PK</remarks>
     </column>
-    <column id="COL81" populated="true" UUID="240a9dc1-c38b-42c7-8719-5841030f3ed2" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL81" populated="true" UUID="240a9dc1-c38b-42c7-8719-5841030f3ed2" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq_4" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The owner who owns this track card.</remarks>
     </column>
-    <column id="COL82" populated="true" UUID="93470544-da98-4de5-8254-4204fefb9404" autoIncrement="false" autoIncrementSequenceName="org_goal_domain_id_seq" defaultValue="" name="org_goal_domain_id" nullable="0" physicalName="org_goal_domain_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL82" populated="true" UUID="93470544-da98-4de5-8254-4204fefb9404" autoIncrement="false" autoIncrementSequenceName="org_goal_domain_id_seq_3" defaultValue="" name="org_goal_domain_id" nullable="0" physicalName="org_goal_domain_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The domain to which this card belongs.</remarks>
     </column>
     <column id="COL83" populated="true" UUID="b21debea-4123-4d4f-8c23-d8366dacad48" autoIncrement="false" autoIncrementSequenceName="base_org_goal_definition_id_seq" defaultValue="" name="base_org_goal_definition_id" nullable="0" physicalName="base_org_goal_definition_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
@@ -291,7 +291,7 @@ Goals definitions in draft state may not be shared across the enterprise..</rema
     <column id="COL93" populated="true" UUID="e8e06d7d-c57e-47a6-a776-3567d9c3e590" autoIncrement="false" autoIncrementSequenceName="tracked_item_unique_name_seq" defaultValue="" name="unique_name" nullable="0" physicalName="unique_name" precision="255" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>The unique name of the item being tracked.</remarks>
     </column>
-    <column id="COL94" populated="true" UUID="26020d9a-3323-44db-b048-4f90e5801824" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL94" populated="true" UUID="26020d9a-3323-44db-b048-4f90e5801824" autoIncrement="false" autoIncrementSequenceName="owner_client_account_id_seq_5" defaultValue="" name="owner_client_account_id" nullable="0" physicalName="owner_client_account_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The owner of the item</remarks>
     </column>
     <column id="COL95" populated="true" UUID="88ffa846-9910-412d-8aa4-14605bef6ca1" autoIncrement="false" autoIncrementSequenceName="tracked_item_description_seq" defaultValue="" name="description" nullable="0" physicalName="description" precision="1024" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -321,10 +321,10 @@ Goals definitions in draft state may not be shared across the enterprise..</rema
     <column id="COL103" populated="true" UUID="c3cf0061-30e3-4d4f-a81a-76464fc0c65a" autoIncrement="false" autoIncrementSequenceName="tracked_item_to_card_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>The PK</remarks>
     </column>
-    <column id="COL104" populated="true" UUID="f8a0149a-2507-46a8-80e8-4061999b8c5d" autoIncrement="false" autoIncrementSequenceName="goal_track_card_id_seq" defaultValue="" name="goal_track_card_id" nullable="0" physicalName="goal_track_card_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL104" populated="true" UUID="f8a0149a-2507-46a8-80e8-4061999b8c5d" autoIncrement="false" autoIncrementSequenceName="goal_track_card_id_seq_1" defaultValue="" name="goal_track_card_id" nullable="0" physicalName="goal_track_card_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The PK</remarks>
     </column>
-    <column id="COL105" populated="true" UUID="a5eadce8-dd91-4902-8da6-6b528e4387f3" autoIncrement="false" autoIncrementSequenceName="tracked_item_id_seq" defaultValue="" name="tracked_item_id" nullable="0" physicalName="tracked_item_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL105" populated="true" UUID="a5eadce8-dd91-4902-8da6-6b528e4387f3" autoIncrement="false" autoIncrementSequenceName="tracked_item_id_seq_1" defaultValue="" name="tracked_item_id" nullable="0" physicalName="tracked_item_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The PK</remarks>
     </column>
     </folder>
@@ -348,10 +348,10 @@ Goals definitions in draft state may not be shared across the enterprise..</rema
     <column id="COL112" populated="true" UUID="41448eaf-48cb-4e25-a675-58b4a6a23a03" autoIncrement="false" autoIncrementSequenceName="tracked_item_goal_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="22" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The PK</remarks>
     </column>
-    <column id="COL113" populated="true" UUID="6062a699-8b7e-4378-9908-f811749c6743" autoIncrement="false" autoIncrementSequenceName="tracked_item_id_seq" defaultValue="" name="tracked_item_id" nullable="0" physicalName="tracked_item_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL113" populated="true" UUID="6062a699-8b7e-4378-9908-f811749c6743" autoIncrement="false" autoIncrementSequenceName="tracked_item_id_seq_2" defaultValue="" name="tracked_item_id" nullable="0" physicalName="tracked_item_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The PK</remarks>
     </column>
-    <column id="COL114" populated="true" UUID="385d4ed0-a914-4102-b219-fd7695f3197f" autoIncrement="false" autoIncrementSequenceName="org_goal_definition_id_seq" defaultValue="" name="org_goal_definition_id" nullable="0" physicalName="org_goal_definition_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL114" populated="true" UUID="385d4ed0-a914-4102-b219-fd7695f3197f" autoIncrement="false" autoIncrementSequenceName="org_goal_definition_id_seq_3" defaultValue="" name="org_goal_definition_id" nullable="0" physicalName="org_goal_definition_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The PK.</remarks>
     </column>
     <column id="COL115" populated="true" UUID="38c42bed-61e2-469b-b4a0-5be2d2039bc1" autoIncrement="false" autoIncrementSequenceName="tracked_item_goal_current_value_seq" defaultValue="" name="current_value" nullable="0" physicalName="current_value" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="8" userDefinedTypeUUID="4fc90970-b2e5-41dd-911c-cc605d87e7a8" >
@@ -386,7 +386,7 @@ Goals definitions in draft state may not be shared across the enterprise..</rema
     <column id="COL123" populated="true" UUID="09ef96e6-c7f7-4c34-989b-6cd7c729db99" autoIncrement="false" autoIncrementSequenceName="tracked_item_goal_history_at_time_seq" defaultValue="" name="at_time" nullable="0" physicalName="at_time" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
      <remarks>at what time did it have this value..</remarks>
     </column>
-    <column id="COL124" populated="true" UUID="fb4171ef-1b50-47f0-801c-8a40c1421f64" autoIncrement="false" autoIncrementSequenceName="tracked_item_goal_id_seq" defaultValue="" name="tracked_item_goal_id" nullable="0" physicalName="tracked_item_goal_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+    <column id="COL124" populated="true" UUID="fb4171ef-1b50-47f0-801c-8a40c1421f64" autoIncrement="false" autoIncrementSequenceName="tracked_item_goal_id_seq_1" defaultValue="" name="tracked_item_goal_id" nullable="0" physicalName="tracked_item_goal_id" precision="22" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>The PK</remarks>
     </column>
     </folder>
@@ -511,16 +511,16 @@ on in the database.</remarks>
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.GenericDDLGenerator" allow-connection="true"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="public"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="1.189207115002721" viewportX="0" viewportY="469" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="1.189207115002721" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="121" y="116" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB11" x="717" y="207" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB24" x="525" y="73" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB33" x="406" y="376" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB47" x="754" y="594" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB59" x="1026" y="361" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB59" x="1035" y="401" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB70" x="40" y="381" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB79" x="25" y="592" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB91" x="345" y="748" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>

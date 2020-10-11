@@ -1,0 +1,1 @@
+docker build -f postgres-dockerfile -t v2s-goal-mgmt-db:1.0 .
