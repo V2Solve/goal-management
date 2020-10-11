@@ -1,0 +1,129 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "goal-management": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/goal-management",
+      "sourceRoot": "projects/goal-management/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/goal-management",
+            "index": "projects/goal-management/src/index.html",
+            "main": "projects/goal-management/src/main.ts",
+            "polyfills": "projects/goal-management/src/polyfills.ts",
+            "tsConfig": "projects/goal-management/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/goal-management/src/favicon.ico",
+              "projects/goal-management/src/assets"
+            ],
+            "styles": [
+              "projects/goal-management/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/goal-management/src/environments/environment.ts",
+                  "with": "projects/goal-management/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "goal-management:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "goal-management:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "goal-management:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/goal-management/src/test.ts",
+            "polyfills": "projects/goal-management/src/polyfills.ts",
+            "tsConfig": "projects/goal-management/tsconfig.spec.json",
+            "karmaConfig": "projects/goal-management/karma.conf.js",
+            "assets": [
+              "projects/goal-management/src/favicon.ico",
+              "projects/goal-management/src/assets"
+            ],
+            "styles": [
+              "projects/goal-management/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/goal-management/tsconfig.app.json",
+              "projects/goal-management/tsconfig.spec.json",
+              "projects/goal-management/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/goal-management/e2e/protractor.conf.js",
+            "devServerTarget": "goal-management:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "goal-management:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "goal-management"
+}
