@@ -4,7 +4,6 @@ import javax.sql.DataSource;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
-import org.springframework.cloud.task.configuration.EnableTask;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
