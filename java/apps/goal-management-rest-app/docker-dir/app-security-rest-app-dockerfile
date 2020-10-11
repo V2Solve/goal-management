@@ -1,0 +1,7 @@
+## Lets start OpenJDK order to be able to run the spring boot app..
+FROM openjdk:14
+COPY target/app-security-rest-app.jar /usr/src/myapp/app-security-rest-app.jar
+WORKDIR /usr/src/myapp
+EXPOSE 9570 
+ENTRYPOINT ["java", "-jar"]
+CMD ["app-security-rest-app.jar"]
