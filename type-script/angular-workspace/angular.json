@@ -92,7 +92,9 @@
               "projects/goal-management/src/assets"
             ],
             "styles": [
-              "projects/goal-management/src/styles.scss"
+              "projects/goal-management/src/styles.scss",
+              "./node_modules/primeflex/primeflex.css",
+              "./node_modules/primeicons/primeicons.css"
             ],
             "scripts": []
           }

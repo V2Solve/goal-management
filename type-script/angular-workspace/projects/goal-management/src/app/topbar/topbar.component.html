@@ -1,1 +1,16 @@
-<p>topbar works!</p>
+<table style="width: 100%; height: auto;">
+    <tr>
+        <td style="text-align: left; width: 80%; padding: 0;">
+            <h2><i class="pi pi-star"></i> &nbsp; Goal Management and Tracking System.</h2>
+        </td>
+        <td style="text-align: right; width: 20%; font-size: smaller;">
+            <span *ngIf="isLoggedIn ()">
+                Welcome {{getUserName()}}, <button (click)="logout()" title="Click to logout.">X</button>
+            </span>
+            <span *ngIf="!isLoggedIn ()">
+                Hello Guest <a (click)="login()" title="Click to login."><i class="pi pi-sign-in"></i></a>
+            </span>
+        </td>
+    </tr>
+</table>
+<hr>

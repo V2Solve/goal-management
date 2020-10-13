@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { MenubarComponent } from './menubar/menubar.component';
 import { BottombarComponent } from './bottombar/bottombar.component';
+import { SharedServicesModule } from './shared-services/shared-services.module'
+import { MenubarModule } from 'primeng/menubar';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +19,8 @@ import { BottombarComponent } from './bottombar/bottombar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
