@@ -22,6 +22,12 @@
 	  </properties>
 
   <dependencies>
+  
+  	<dependency>
+	  <groupId>com.v2solve.goal.management</groupId>
+	  <artifactId>goal-management-jpa</artifactId>
+	  <version>233.1.0.RELEASE</version>
+  	</dependency>
 
 	<dependency>
 	  <groupId>com.v2solve.goal.management</groupId>

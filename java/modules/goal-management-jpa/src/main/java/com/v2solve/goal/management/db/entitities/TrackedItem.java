@@ -19,7 +19,6 @@ public class TrackedItem extends BaseEntity implements Serializable {
 	private String uniqueName;
 	private ClientAccount clientAccount;
 	private OrgGoalDomain orgGoalDomain;
-	private List<TrackedItemGoal> trackedItemGoals;
 	private List<TrackedItemToCard> trackedItemToCards;
 
 	public TrackedItem() {
@@ -80,31 +79,6 @@ public class TrackedItem extends BaseEntity implements Serializable {
 
 	public void setOrgGoalDomain(OrgGoalDomain orgGoalDomain) {
 		this.orgGoalDomain = orgGoalDomain;
-	}
-
-
-	//bi-directional many-to-one association to TrackedItemGoal
-	@OneToMany(mappedBy="trackedItem")
-	public List<TrackedItemGoal> getTrackedItemGoals() {
-		return this.trackedItemGoals;
-	}
-
-	public void setTrackedItemGoals(List<TrackedItemGoal> trackedItemGoals) {
-		this.trackedItemGoals = trackedItemGoals;
-	}
-
-	public TrackedItemGoal addTrackedItemGoal(TrackedItemGoal trackedItemGoal) {
-		getTrackedItemGoals().add(trackedItemGoal);
-		trackedItemGoal.setTrackedItem(this);
-
-		return trackedItemGoal;
-	}
-
-	public TrackedItemGoal removeTrackedItemGoal(TrackedItemGoal trackedItemGoal) {
-		getTrackedItemGoals().remove(trackedItemGoal);
-		trackedItemGoal.setTrackedItem(null);
-
-		return trackedItemGoal;
 	}
 
 

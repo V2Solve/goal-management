@@ -20,7 +20,7 @@ public class TrackedItemGoal extends BaseEntity implements Serializable {
 	private Timestamp lastUpdatedTime;
 	private ClientAccount clientAccount;
 	private OrgGoalDefinition orgGoalDefinition;
-	private TrackedItem trackedItem;
+	private TrackedItemToCard trackedItemToCard;
 	private List<TrackedItemGoalHistory> trackedItemGoalHistories;
 
 	public TrackedItemGoal() {
@@ -84,15 +84,15 @@ public class TrackedItemGoal extends BaseEntity implements Serializable {
 	}
 
 
-	//bi-directional many-to-one association to TrackedItem
+	//bi-directional many-to-one association to TrackedItemToCard
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="tracked_item_id", nullable=false)
-	public TrackedItem getTrackedItem() {
-		return this.trackedItem;
+	@JoinColumn(name="tracked_item_to_card_id", nullable=false)
+	public TrackedItemToCard getTrackedItemToCard() {
+		return this.trackedItemToCard;
 	}
 
-	public void setTrackedItem(TrackedItem trackedItem) {
-		this.trackedItem = trackedItem;
+	public void setTrackedItemToCard(TrackedItemToCard trackedItemToCard) {
+		this.trackedItemToCard = trackedItemToCard;
 	}
 
 

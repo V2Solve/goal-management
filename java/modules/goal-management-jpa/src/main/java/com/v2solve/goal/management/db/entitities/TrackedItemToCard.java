@@ -2,6 +2,7 @@ package com.v2solve.goal.management.db.entitities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -14,6 +15,7 @@ import javax.persistence.*;
 public class TrackedItemToCard extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String id;
+	private List<TrackedItemGoal> trackedItemGoals;
 	private GoalTrackCard goalTrackCard;
 	private TrackedItem trackedItem;
 
@@ -31,6 +33,31 @@ public class TrackedItemToCard extends BaseEntity implements Serializable {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+
+	//bi-directional many-to-one association to TrackedItemGoal
+	@OneToMany(mappedBy="trackedItemToCard")
+	public List<TrackedItemGoal> getTrackedItemGoals() {
+		return this.trackedItemGoals;
+	}
+
+	public void setTrackedItemGoals(List<TrackedItemGoal> trackedItemGoals) {
+		this.trackedItemGoals = trackedItemGoals;
+	}
+
+	public TrackedItemGoal addTrackedItemGoal(TrackedItemGoal trackedItemGoal) {
+		getTrackedItemGoals().add(trackedItemGoal);
+		trackedItemGoal.setTrackedItemToCard(this);
+
+		return trackedItemGoal;
+	}
+
+	public TrackedItemGoal removeTrackedItemGoal(TrackedItemGoal trackedItemGoal) {
+		getTrackedItemGoals().remove(trackedItemGoal);
+		trackedItemGoal.setTrackedItemToCard(null);
+
+		return trackedItemGoal;
 	}
 
 

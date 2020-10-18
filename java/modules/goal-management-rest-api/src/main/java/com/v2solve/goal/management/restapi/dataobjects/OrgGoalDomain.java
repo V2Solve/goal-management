@@ -17,6 +17,7 @@ public class OrgGoalDomain implements Serializable
 {
 	static final long serialVersionUID = 1L;
 	long id;
+	OrgGoalDomain parentDomain;
 	String description;
 	String title;
 	List<GoalTrackCard> goalTrackCards;

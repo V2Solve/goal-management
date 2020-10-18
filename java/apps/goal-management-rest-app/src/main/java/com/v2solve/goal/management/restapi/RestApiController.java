@@ -68,7 +68,7 @@ public class RestApiController implements IGoalManagementApi
 	{
 		try
 		{
-			List<OrgGoalDomain> result = orgDomainService.searchOrgGoalDomain(request.getDomainInfo());
+			List<OrgGoalDomain> result = orgDomainService.searchOrgGoalDomain(request.getDomainInfo(),request.getPagingInfo());
 			SearchOrgDomainResponse resp = new SearchOrgDomainResponse(RequestStatusInformation.SUCCESS);
 			resp.setDomainInfo(result);
 			return resp;

@@ -21,6 +21,8 @@ public class OrgGoalDomain extends BaseEntity implements Serializable {
 	private List<GoalValueType> goalValueTypes;
 	private List<OrgGoalDefinition> orgGoalDefinitions;
 	private ClientAccount clientAccount;
+	private OrgGoalDomain orgGoalDomain;
+	private List<OrgGoalDomain> orgGoalDomains;
 	private List<TrackedItem> trackedItems;
 
 	public OrgGoalDomain() {
@@ -144,6 +146,43 @@ public class OrgGoalDomain extends BaseEntity implements Serializable {
 
 	public void setClientAccount(ClientAccount clientAccount) {
 		this.clientAccount = clientAccount;
+	}
+
+
+	//bi-directional many-to-one association to OrgGoalDomain
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="parent_id")
+	public OrgGoalDomain getOrgGoalDomain() {
+		return this.orgGoalDomain;
+	}
+
+	public void setOrgGoalDomain(OrgGoalDomain orgGoalDomain) {
+		this.orgGoalDomain = orgGoalDomain;
+	}
+
+
+	//bi-directional many-to-one association to OrgGoalDomain
+	@OneToMany(mappedBy="orgGoalDomain")
+	public List<OrgGoalDomain> getOrgGoalDomains() {
+		return this.orgGoalDomains;
+	}
+
+	public void setOrgGoalDomains(List<OrgGoalDomain> orgGoalDomains) {
+		this.orgGoalDomains = orgGoalDomains;
+	}
+
+	public OrgGoalDomain addOrgGoalDomain(OrgGoalDomain orgGoalDomain) {
+		getOrgGoalDomains().add(orgGoalDomain);
+		orgGoalDomain.setOrgGoalDomain(this);
+
+		return orgGoalDomain;
+	}
+
+	public OrgGoalDomain removeOrgGoalDomain(OrgGoalDomain orgGoalDomain) {
+		getOrgGoalDomains().remove(orgGoalDomain);
+		orgGoalDomain.setOrgGoalDomain(null);
+
+		return orgGoalDomain;
 	}
 
 
