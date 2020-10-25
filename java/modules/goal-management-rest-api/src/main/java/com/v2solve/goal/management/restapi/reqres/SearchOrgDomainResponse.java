@@ -29,5 +29,5 @@ public class SearchOrgDomainResponse extends BaseResponse
 		super(rsi, pageInfo);
 	}
 
-	List<OrgGoalDomain> domainInfo;	      // Returns the objects of the search..
+	List<OrgGoalDomain> domainInfos;	      // Returns the objects of the search..
 }

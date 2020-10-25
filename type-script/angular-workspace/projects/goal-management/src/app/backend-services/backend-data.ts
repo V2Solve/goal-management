@@ -145,6 +145,7 @@ export class OrgGoalDomain
 	orgGoalDefinitions!: Array<OrgGoalDefinition>;
 	clientAccount!: ClientAccount
 	trackedItems!: Array<TrackedItem>;
+	parentDomain!: OrgGoalDomain;
 }
 
 /**
@@ -213,33 +214,17 @@ export class TrackedItemToCard
  */
 export class CreateOrgDomainRequest extends baserestapi.BaseRequest
 {
-
-	/**
-	 * 
-	 */
-	
-	
 	// The org domain to be created..
 	domainInfo!: OrgGoalDomain;
 }
 
 export class CreateOrgDomainResponse extends baserestapi.BaseResponse {
-
-	/**
-	 * 
-	 */
 	domainInfo!: OrgGoalDomain;	// Returns the object that was created if at all..
 }
 
 
 export class DeleteOrgDomainRequest extends baserestapi.BaseRequest 
 {
-
-	/**
-	 * 
-	 */
-	
-	
 	/**
 	 * Id of the object to be deleted..
 	 */
@@ -266,5 +251,5 @@ export class SearchOrgDomainResponse extends baserestapi.BaseResponse
 	/**
 	 * 
 	 */
-	domainInfo!: Array<OrgGoalDomain>;	      // Returns the objects of the search..
+	domainInfos!: Array<OrgGoalDomain>;	      // Returns the objects of the search..
 }

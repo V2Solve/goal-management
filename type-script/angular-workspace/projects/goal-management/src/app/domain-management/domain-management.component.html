@@ -1,0 +1,35 @@
+<h3>Manage Org Domains</h3>
+
+<app-page-message-box [infoMsgs]="infoMsgs" [errorMsgs]="errorMsgs"></app-page-message-box>
+
+<div class="p-field p-grid">
+    <label for="parent_domain" class="p-col-fixed" style="width:100px">Parent Domain</label>
+    <div class="p-col">
+        <p-dropdown id="parent_domain" [options]="listOfSelects" (ngModel)="selectedParent" optionLabel="name"></p-dropdown>
+    </div>
+</div>
+<div class="p-field p-grid">
+    <label for="title" class="p-col-fixed" style="width:100px">Domain Title</label>
+    <div class="p-col">
+        <input id="title" type="text" pInputText [formControl]="title">
+    </div>
+</div>
+<div class="p-field p-grid">
+    <label for="title_description" class="p-col-fixed" style="width:100px">Description</label>
+    <div class="p-col">
+        <textarea id="title_description" [rows]="5" [cols]="80" pInputTextarea autoResize="autoResize" [formControl]="description"></textarea>
+    </div>
+</div>
+
+
+<button pButton type="button" label="Save" icon="pi pi-check" [disabled]="formGroup.invalid" (click)="saveRecord()"></button>&nbsp;
+<button pButton type="button" label="Delete" icon="pi pi-trash" [disabled]="formGroup.invalid" (click)="deleteRecord()"></button>&nbsp;
+<button pButton type="button" label="Search" icon="pi pi-times" (click)="searchRecords()"></button>
+
+
+<div>
+
+
+    
+
+</div>

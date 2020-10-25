@@ -22,10 +22,8 @@ v2solve:
         allowed-origins:        - "*"
         allowed-headers:        - "*"
       authwhitelist: "/oidc-support**"
-      basic:
-        enable: true
-        realm: v2solve
-        
+      disable: true
+      
 logging:  level:    com:
       v2solve:
         app:

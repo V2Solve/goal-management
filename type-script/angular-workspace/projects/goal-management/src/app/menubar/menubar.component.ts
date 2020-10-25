@@ -23,14 +23,17 @@ export class MenubarComponent implements OnInit {
                 {
                     label:'Goal-Domains',
                     icon:'pi pi-fw pi-th-large',
+                    routerLink: '/domain-management'
                 },
                 {
                     label:'Goal-Definitions',
-                    icon:'pi pi-fw pi-file'
+                    icon:'pi pi-fw pi-file',
+                    routerLink: '/goal-definitions'
                 },
                 {
                     label:'Goal-Value-Types',
-                    icon:'pi pi-fw pi-list'
+                    icon:'pi pi-fw pi-list',
+                    routerLink: '/goal-value-types'
                 }
             ]
         },
@@ -40,17 +43,20 @@ export class MenubarComponent implements OnInit {
             items:[
                 {
                     label:'Card',
-                    icon:'pi pi-fw pi-table'
+                    icon:'pi pi-fw pi-table',
+                    routerLink: '/goal-card-management'
                 },
                 {
                     label:'Add Items',
-                    icon:'pi pi-fw pi-plus'
+                    icon:'pi pi-fw pi-plus',
+                    routerLink: '/item-management'
                 },
             ]
         },
         {
             label:'Audit Logs',
             icon:'pi pi-fw pi-user-edit',
+            routerLink: '/audit-logs'
         },
     ];
   }

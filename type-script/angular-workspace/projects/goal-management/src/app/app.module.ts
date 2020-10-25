@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -13,22 +15,36 @@ import { MenubarModule } from 'primeng/menubar';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
+import { DropdownModule} from 'primeng/dropdown';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+
+import { DomainManagementComponent } from './domain-management/domain-management.component';
+import { PageMessageBoxComponent } from './page-message-box/page-message-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
     MenubarComponent,
-    BottombarComponent
+    BottombarComponent,
+    DomainManagementComponent,
+    PageMessageBoxComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     MenubarModule,
     InputTextModule,
     ButtonModule,
     TabViewModule,
-    HttpClientModule
+    DropdownModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MessagesModule,
+    MessageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -39,6 +39,7 @@ public class OrgDomainDataLogic
 			pd = JPAUtils.findObjectReturnNull(em, com.v2solve.goal.management.db.entitities.OrgGoalDomain.class, "title", parentDomain.getTitle());
 			if (pd == null)
 				throw new DatalogicValidationException("Parent Domain with title: " + parentDomain.getTitle() + " was not found.");
+			
 		}
 		
 		ClientAccount ca = null;
@@ -67,6 +68,10 @@ public class OrgDomainDataLogic
 			ogd.setClientAccount(ca);
 			ogd.setDescription(domainInfo.getDescription());
 			ogd.setTitle(domainInfo.getTitle());
+			
+			if (pd != null && pd.getId() == ogd.getId())
+				pd = null;	// It cannot be its Own PARENT !, this means that it will become root.
+			
 			ogd.setOrgGoalDomain(pd);
 			JPAUtils.updateObject(em, ogd);
 		}

@@ -70,7 +70,7 @@ public class RestApiController implements IGoalManagementApi
 		{
 			List<OrgGoalDomain> result = orgDomainService.searchOrgGoalDomain(request.getDomainInfo(),request.getPagingInfo());
 			SearchOrgDomainResponse resp = new SearchOrgDomainResponse(RequestStatusInformation.SUCCESS);
-			resp.setDomainInfo(result);
+			resp.setDomainInfos(result);
 			return resp;
 		}
 		catch (ApiValidationException apie)

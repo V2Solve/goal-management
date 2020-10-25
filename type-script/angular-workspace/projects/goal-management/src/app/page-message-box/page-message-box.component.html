@@ -1,0 +1,13 @@
+<div *ngIf="hasMessages()">
+    <p></p>
+    <div *ngIf="hasErrorMessages()">
+        <p-message *ngFor="let msg of errorMsgs" severity="{{msg.severity}}" text="{{msg.summary}}" closeable="false"></p-message>
+    </div>
+    
+    <div *ngIf="hasInfoMessages()">
+        <p-message  *ngFor="let msg of infoMsgs" severity="{{msg.severity}}" text="{{msg.summary}}" closeable="false"></p-message>
+    </div>
+    
+    <button type="button" (click)="clearAllMessages()">Clear</button>
+    <p></p>
+</div>
