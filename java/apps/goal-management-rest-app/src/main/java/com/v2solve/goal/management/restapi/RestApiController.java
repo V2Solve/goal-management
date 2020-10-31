@@ -15,6 +15,7 @@ import com.v2solve.commons.utils.ExceptionUtils;
 import com.v2solve.commons.utils.GUIDUtils;
 import com.v2solve.goal.management.businesslogic.OrgDomainBusinessLogic;
 import com.v2solve.goal.management.restapi.contract.IGoalManagementApi;
+import com.v2solve.goal.management.restapi.dataobjects.ClientAccount;
 import com.v2solve.goal.management.restapi.dataobjects.OrgGoalDomain;
 import com.v2solve.goal.management.restapi.reqres.CreateOrgDomainRequest;
 import com.v2solve.goal.management.restapi.reqres.CreateOrgDomainResponse;
@@ -41,7 +42,15 @@ public class RestApiController implements IGoalManagementApi
 	{
 		try
 		{
-			OrgGoalDomain result = orgDomainService.createOrgGoalDomain(request.getDomainInfo());
+			OrgGoalDomain ogd = request.getDomainInfo();
+			ClientAccount ca = new ClientAccount();
+			ca.setFirstName("Saurin");
+			ca.setLastName("Magiawala");
+			ca.setPrimaryEmail("saurinya@gmail.com");
+			ca.setUniqueDisplayName("saurinya");
+			ogd.setClientAccount(ca);
+			
+			OrgGoalDomain result = orgDomainService.createOrgGoalDomain(ogd);
 			CreateOrgDomainResponse resp = new CreateOrgDomainResponse(RequestStatusInformation.SUCCESS);
 			resp.setDomainInfo(result);
 			return resp;

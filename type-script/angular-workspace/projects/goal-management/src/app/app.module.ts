@@ -18,9 +18,12 @@ import {TabViewModule} from 'primeng/tabview';
 import { DropdownModule} from 'primeng/dropdown';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import {TableModule} from 'primeng/table';
+import {MultiSelectModule} from 'primeng/multiselect';
 
 import { DomainManagementComponent } from './domain-management/domain-management.component';
 import { PageMessageBoxComponent } from './page-message-box/page-message-box.component';
+import { CommonTableComponent } from './common-table/common-table.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { PageMessageBoxComponent } from './page-message-box/page-message-box.com
     MenubarComponent,
     BottombarComponent,
     DomainManagementComponent,
-    PageMessageBoxComponent
+    PageMessageBoxComponent,
+    CommonTableComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import { PageMessageBoxComponent } from './page-message-box/page-message-box.com
     FormsModule,
     ReactiveFormsModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    TableModule,
+    MultiSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,6 +5,7 @@ import { BaseComponent } from '../shared-services/base-component';
 import {BackEndService} from './../backend-services/backend.service'
 import {SelectItem} from './../../../../../node_modules/primeng/api';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TableColumnInfo } from '../common-table/common-table.component';
 
 
 @Component({
@@ -22,12 +23,63 @@ export class DomainManagementComponent extends BaseComponent implements OnInit
 
   formGroup = new FormGroup ({'title':this.title,'description':this.description});
 
-  selectedParent: SelectedItem;
+  selectedParent: string;
+
+  listOfColumns: Array<any> = new Array();
 
   constructor(private bs: BackEndService) {
     super ();
   }
 
+
+
+  rowClicked (eventData: any)
+  {
+    if (eventData != null)
+    {
+      let b: OrgGoalDomain = eventData;
+      this.title.setValue(b.title);
+      this.description.setValue(b.description);
+      if (b.parentDomain  != null)
+      {
+          this.selectedParent = b.parentDomain.title;
+      }
+      else
+      {
+          this.selectedParent = null;
+      }
+    }
+  }
+
+  configureTableColumns ()
+  {
+      this.listOfColumns.length = 0;
+
+      {
+        let tblColumnInfo = new TableColumnInfo('id','ID',TableColumnInfo.LINKTYPE_BUTTON,"^");
+        tblColumnInfo.width(10);
+        tblColumnInfo.searchable = false;
+        this.listOfColumns.push(tblColumnInfo);
+      }
+
+      {
+        let tblColumnInfo = new TableColumnInfo('title','Title');
+        tblColumnInfo.width(20);
+        this.listOfColumns.push(tblColumnInfo);
+      }
+
+      {
+        let tblColumnInfo = new TableColumnInfo('description','Description');
+        tblColumnInfo.width(50);
+        this.listOfColumns.push(tblColumnInfo);
+      }
+
+      {
+        let tblColumnInfo = new TableColumnInfo('parentDomain.title','Parent');
+        tblColumnInfo.width(20);
+        this.listOfColumns.push(tblColumnInfo);
+      }
+  }
 
   saveRecord ()
   {
@@ -37,11 +89,14 @@ export class DomainManagementComponent extends BaseComponent implements OnInit
      domainInfo.description = this.description.value;
      domainInfo.title = this.title.value;
 
-     if (this.selectedParent != null && this.selectedParent.code != null)
+    console.log("Parent Information: " + JSON.stringify(this.selectedParent));
+
+     if (this.selectedParent != null)
      {
        let parentDomain = new OrgGoalDomain ();
-       parentDomain.title = this.selectedParent.code;
+       parentDomain.title = this.selectedParent;
        domainInfo.parentDomain = parentDomain;
+       console.log("Put Parent Domain: " + JSON.stringify(parentDomain));
      }
      
     
@@ -85,27 +140,28 @@ export class DomainManagementComponent extends BaseComponent implements OnInit
 
   searchRecords ()
   {
+     this.listOfDomains.length = 0;
+
      let request = new SearchOrgDomainRequest ();
      let domainInfo = new OrgGoalDomain ();
      request.domainInfo = domainInfo;
+     
+     if (this.description.value != null && this.description.value.length > 0)
      domainInfo.description = this.description.value;
+     
+     if (this.title.value != null && this.title.value.length > 0)
      domainInfo.title = this.title.value;
+     
      let result = this.bs.searchOrgDomain(request);
-     result.then(value => {
+     
+     result.then(value => 
+      {
  
        if (value != null && value.status.statusCode == RequestStatusInformation.standardSuccessCode)
        {
-           this.listOfDomains.length = 0;
-           this.listOfSelects.length=0;
-           
-           let rootSI = {label:'Select Parent', value:null};
-           this.listOfSelects.push(rootSI);
-           
            for (let orgDomainInfo of value.domainInfos)
            {
                this.listOfDomains.push(orgDomainInfo);
-               let si = {label: orgDomainInfo.title, value: orgDomainInfo.title};
-               this.listOfSelects.push(si);
            }
        }
        else
@@ -122,24 +178,23 @@ export class DomainManagementComponent extends BaseComponent implements OnInit
 
   readOrgDomains ()
   {
+    this.listOfSelects.length=0;
+    
+    let rootSI = new SelectRecord("Select Parent","");
+    this.listOfSelects.push(rootSI);
+
     let req = new SearchOrgDomainRequest ();
-    
     let result = this.bs.searchOrgDomain(req);
-    
-    result.then(value => {
+
+    result.then(value => 
+      {
 
       if (value != null && value.status.statusCode == RequestStatusInformation.standardSuccessCode)
       {
-          this.listOfDomains.length = 0;
-          this.listOfSelects.length=0;
-          
-          let rootSI = {label:'Select Parent', value:null};
-          this.listOfSelects.push(rootSI);
-          
           for (let orgDomainInfo of value.domainInfos)
           {
-              this.listOfDomains.push(orgDomainInfo);
-              let si = {label: orgDomainInfo.title, value: orgDomainInfo.title};
+              let si = new SelectRecord(orgDomainInfo.title,orgDomainInfo.title);
+              console.log("Pushed: " + JSON.stringify(orgDomainInfo));
               this.listOfSelects.push(si);
           }
       }
@@ -155,6 +210,7 @@ export class DomainManagementComponent extends BaseComponent implements OnInit
   }
 
   ngOnInit(): void {
+    this.configureTableColumns ();
     this.readOrgDomains();
     this.searchRecords ();
   }
@@ -164,4 +220,20 @@ export class DomainManagementComponent extends BaseComponent implements OnInit
 interface SelectedItem {
   name: string;
   code: string;
+}
+
+export class SelectRecord implements SelectItem
+{
+  label?: string;
+  value: string;
+  styleClass?: string;
+  icon?: string;
+  title?: string;
+  disabled?: boolean;  
+  
+  constructor(label: string,value: string)
+  {
+    this.label = label;
+    this.value = value;
+  }
 }

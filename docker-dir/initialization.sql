@@ -462,3 +462,6 @@ ALTER SEQUENCE "seq_tracked_item_to_card_id" OWNER TO postgres;
 
 CREATE SEQUENCE "seq_goal_management_audit_log_id" INCREMENT 50  START 10000  MINVALUE 1  MAXVALUE 1000000000 CACHE 1;
 ALTER SEQUENCE "seq_goal_management_audit_log_id" OWNER TO postgres;
+
+
+INSERT INTO CLIENT_ACCOUNT (id,primary_email,first_name,last_name,unique_display_name,email_verified) values (0,'saurinya@gmail.com','Saurin','Magiawala','saurinya',true);

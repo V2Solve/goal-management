@@ -5,7 +5,7 @@
 <div class="p-field p-grid">
     <label for="parent_domain" class="p-col-fixed" style="width:100px">Parent Domain</label>
     <div class="p-col">
-        <p-dropdown id="parent_domain" [options]="listOfSelects" (ngModel)="selectedParent" optionLabel="name"></p-dropdown>
+        <p-dropdown id="parent_domain" [options]="listOfSelects" [(ngModel)]="selectedParent"></p-dropdown>
     </div>
 </div>
 <div class="p-field p-grid">
@@ -26,10 +26,14 @@
 <button pButton type="button" label="Delete" icon="pi pi-trash" [disabled]="formGroup.invalid" (click)="deleteRecord()"></button>&nbsp;
 <button pButton type="button" label="Search" icon="pi pi-times" (click)="searchRecords()"></button>
 
-
 <div>
-
-
-    
-
+<p></p>
+    <app-common-table 
+            (rowClick)="rowClicked($event)" 
+            [globalSearchEnabled]="false" 
+            [maxDisplayLength]="100"
+            [tableTitle]="'Existing Records'"
+            [tableData]="listOfDomains"
+            [tableColumns]="listOfColumns">
+    </app-common-table>
 </div>

@@ -67,6 +67,37 @@ public class OrgDomainBusinessLogic
 			throw new BusinesslogicValidationException(errs.getConsolidatedErrors("Errors encountered while validating Domain Information."));
 	}
 	
+	
+	public void copyObject (com.v2solve.goal.management.db.entitities.OrgGoalDomain src,OrgGoalDomain dest)
+	{
+		dest.setTitle(src.getTitle());
+		dest.setDescription(src.getDescription());
+		dest.setId(src.getId());
+		
+		com.v2solve.goal.management.db.entitities.OrgGoalDomain parentDomain = src.getOrgGoalDomain();
+		
+		// Lets give the parent.
+		if (parentDomain != null)
+		{
+			OrgGoalDomain pdd = new OrgGoalDomain();
+			pdd.setTitle(parentDomain.getTitle());
+			pdd.setDescription(parentDomain.getDescription());
+			pdd.setId(parentDomain.getId());
+			dest.setParentDomain(pdd);
+		}
+		
+		com.v2solve.goal.management.restapi.dataobjects.ClientAccount ca = new com.v2solve.goal.management.restapi.dataobjects.ClientAccount();
+		com.v2solve.goal.management.db.entitities.ClientAccount caE = src.getClientAccount();
+		
+		ca.setFirstName(caE.getFirstName());
+		ca.setLastName(caE.getLastName());
+		ca.setPrimaryEmail(caE.getPrimaryEmail());
+		ca.setUniqueDisplayName(caE.getUniqueDisplayName());
+		ca.setId(caE.getId());
+		dest.setClientAccount(ca);
+	}
+	
+	
 	/**
 	 * Creates a new OrgGoalDomain Object
 	 * @param domainInfo
@@ -83,8 +114,9 @@ public class OrgDomainBusinessLogic
 			tw = TransactionWrapper.getTransactionWrapper(em);
 			validateForCreateAndOrUpdate(em, domainInfo);
 			com.v2solve.goal.management.db.entitities.OrgGoalDomain ogd = OrgDomainDataLogic.createOrUpdateOrgGoalDomain(em, domainInfo);
+			tw.success();
 			domainInfo = new OrgGoalDomain();
-			BeanUtils.copyProperties(ogd, domainInfo);
+			copyObject(ogd, domainInfo);
 			return domainInfo;
 		}
 		finally
@@ -109,8 +141,9 @@ public class OrgDomainBusinessLogic
 			tw = TransactionWrapper.getTransactionWrapper(em);
 			validateForDelete(em, objectId);
 			com.v2solve.goal.management.db.entitities.OrgGoalDomain ogd = OrgDomainDataLogic.deleteOrgDomain(em, objectId);
+			tw.success();
 			OrgGoalDomain domainInfo = new OrgGoalDomain();
-			BeanUtils.copyProperties(ogd, domainInfo);
+			copyObject(ogd, domainInfo);
 			return domainInfo;
 		}
 		finally
@@ -147,11 +180,7 @@ public class OrgDomainBusinessLogic
 				for (com.v2solve.goal.management.db.entitities.OrgGoalDomain ogd: listOfObjects)
 				{
 					OrgGoalDomain ogdd = new OrgGoalDomain();
-					com.v2solve.goal.management.restapi.dataobjects.ClientAccount ca = new com.v2solve.goal.management.restapi.dataobjects.ClientAccount();
-					com.v2solve.goal.management.db.entitities.ClientAccount caE = ogd.getClientAccount();
-					BeanUtils.copyProperties(caE, ca);
-					ogdd.setClientAccount(ca);
-					BeanUtils.copyProperties(ogd, ogdd);
+					copyObject(ogd, ogdd);
 					results.add(ogdd);
 				}
 			}
