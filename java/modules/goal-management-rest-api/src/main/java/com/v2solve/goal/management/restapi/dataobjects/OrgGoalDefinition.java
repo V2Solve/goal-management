@@ -18,12 +18,13 @@ public class OrgGoalDefinition implements Serializable
 	String goalDefinitionState;
 	double goalWeight;
 	String title;
+
+	OrgGoalDefinition parentGoal;
+	List<OrgGoalDefinition> childGoals;
+	
 	List<GoalTrackCard> goalTrackCards;
 	List<GoalValueType> goalValueTypes;
-	ClientAccount clientAccount1;
-	ClientAccount clientAccount2;
-	OrgGoalDefinition orgGoalDefinition;
-	List<OrgGoalDefinition> orgGoalDefinitions;
+	ClientAccount clientAccount;
 	OrgGoalDomain orgGoalDomain;
 	List<TrackedItemGoal> trackedItemGoals;
 }

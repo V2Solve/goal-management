@@ -21,8 +21,7 @@ public class OrgGoalDefinition extends BaseEntity implements Serializable {
 	private String title;
 	private List<GoalTrackCard> goalTrackCards;
 	private List<GoalValueType> goalValueTypes;
-	private ClientAccount clientAccount1;
-	private ClientAccount clientAccount2;
+	private ClientAccount clientAccount;
 	private OrgGoalDefinition orgGoalDefinition;
 	private List<OrgGoalDefinition> orgGoalDefinitions;
 	private OrgGoalDomain orgGoalDomain;
@@ -135,27 +134,15 @@ public class OrgGoalDefinition extends BaseEntity implements Serializable {
 	}
 
 
-	//bi-directional one-to-one association to ClientAccount
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="id", nullable=false, insertable=false, updatable=false)
-	public ClientAccount getClientAccount1() {
-		return this.clientAccount1;
-	}
-
-	public void setClientAccount1(ClientAccount clientAccount1) {
-		this.clientAccount1 = clientAccount1;
-	}
-
-
 	//bi-directional many-to-one association to ClientAccount
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="owner_client_account_id", nullable=false)
-	public ClientAccount getClientAccount2() {
-		return this.clientAccount2;
+	public ClientAccount getClientAccount() {
+		return this.clientAccount;
 	}
 
-	public void setClientAccount2(ClientAccount clientAccount2) {
-		this.clientAccount2 = clientAccount2;
+	public void setClientAccount(ClientAccount clientAccount) {
+		this.clientAccount = clientAccount;
 	}
 
 

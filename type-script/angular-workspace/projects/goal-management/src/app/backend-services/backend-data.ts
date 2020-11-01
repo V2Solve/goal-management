@@ -122,10 +122,9 @@ export class OrgGoalDefinition
 	title!: string;
 	goalTrackCards!: Array<GoalTrackCard>;
 	goalValueTypes!: Array<GoalValueType>;
-	clientAccount1!: ClientAccount;
-	clientAccount2!: ClientAccount;
-	orgGoalDefinition!: OrgGoalDefinition
-	orgGoalDefinitions!: Array<OrgGoalDefinition>;
+	clientAccount!: ClientAccount;
+	parentGoal!: OrgGoalDefinition
+	childGoals!: Array<OrgGoalDefinition>;
 	orgGoalDomain!: OrgGoalDomain
 	trackedItemGoals!: Array<TrackedItemGoal>;
 }
@@ -252,4 +251,51 @@ export class SearchOrgDomainResponse extends baserestapi.BaseResponse
 	 * 
 	 */
 	domainInfos!: Array<OrgGoalDomain>;	      // Returns the objects of the search..
+}
+
+
+export class CreateOrgGoalDefinitionResponse extends baserestapi.BaseResponse {
+
+
+	goalInfo!: OrgGoalDefinition ;	// Returns the object that was created if at all..
+}
+
+export class CreateOrgGoalDefinitionRequest extends baserestapi.BaseRequest
+{
+	// The record to be created
+	goalInfo!: OrgGoalDefinition;
+}
+
+
+export class SearchOrgGoalDefinitionRequest extends CreateOrgGoalDefinitionRequest {
+    /**
+	 * 
+	 */
+}
+
+
+export class SearchOrgGoalDefintionResponse extends baserestapi.BaseResponse 
+{
+	/**
+	 * 
+	 */
+	goalInfos!: Array<OrgGoalDefinition>;	      // Returns the objects of the search..
+}
+
+
+export class DeleteOrgGoalDefinitionRequest extends baserestapi.BaseRequest 
+{
+	/**
+	 * Id of the object to be deleted..
+	 */
+	objectId!: string;
+}
+
+
+export class DeleteOrgGoalDefinitionResponse extends baserestapi.BaseResponse 
+{
+	/**
+	 * 
+	 */
+	goalInfo!: OrgGoalDefinition;	      // Returns the deleted object information..
 }

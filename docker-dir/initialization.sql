@@ -262,13 +262,6 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE public.org_goal_definition ADD CONSTRAINT client_account_org_goal_definition_fk
-FOREIGN KEY (id)
-REFERENCES public.client_account (id)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION
-NOT DEFERRABLE;
-
 ALTER TABLE public.org_goal_definition ADD CONSTRAINT client_account_org_goal_definition_fk1
 FOREIGN KEY (owner_client_account_id)
 REFERENCES public.client_account (id)

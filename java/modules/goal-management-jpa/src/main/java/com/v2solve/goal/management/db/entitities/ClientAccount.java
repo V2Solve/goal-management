@@ -24,7 +24,6 @@ public class ClientAccount extends BaseEntity implements Serializable {
 	private List<GoalTrackCard> goalTrackCards;
 	private List<GoalValueType> goalValueTypes;
 	private List<GoalValueTypeOption> goalValueTypeOptions;
-	private OrgGoalDefinition orgGoalDefinition;
 	private List<OrgGoalDefinition> orgGoalDefinitions;
 	private List<OrgGoalDomain> orgGoalDomains;
 	private List<TrackedItem> trackedItems;
@@ -197,19 +196,8 @@ public class ClientAccount extends BaseEntity implements Serializable {
 	}
 
 
-	//bi-directional one-to-one association to OrgGoalDefinition
-	@OneToOne(mappedBy="clientAccount1", fetch=FetchType.LAZY)
-	public OrgGoalDefinition getOrgGoalDefinition() {
-		return this.orgGoalDefinition;
-	}
-
-	public void setOrgGoalDefinition(OrgGoalDefinition orgGoalDefinition) {
-		this.orgGoalDefinition = orgGoalDefinition;
-	}
-
-
 	//bi-directional many-to-one association to OrgGoalDefinition
-	@OneToMany(mappedBy="clientAccount2")
+	@OneToMany(mappedBy="clientAccount")
 	public List<OrgGoalDefinition> getOrgGoalDefinitions() {
 		return this.orgGoalDefinitions;
 	}
@@ -220,14 +208,14 @@ public class ClientAccount extends BaseEntity implements Serializable {
 
 	public OrgGoalDefinition addOrgGoalDefinition(OrgGoalDefinition orgGoalDefinition) {
 		getOrgGoalDefinitions().add(orgGoalDefinition);
-		orgGoalDefinition.setClientAccount2(this);
+		orgGoalDefinition.setClientAccount(this);
 
 		return orgGoalDefinition;
 	}
 
 	public OrgGoalDefinition removeOrgGoalDefinition(OrgGoalDefinition orgGoalDefinition) {
 		getOrgGoalDefinitions().remove(orgGoalDefinition);
-		orgGoalDefinition.setClientAccount2(null);
+		orgGoalDefinition.setClientAccount(null);
 
 		return orgGoalDefinition;
 	}
