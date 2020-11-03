@@ -24,6 +24,7 @@ import {MultiSelectModule} from 'primeng/multiselect';
 import { DomainManagementComponent } from './domain-management/domain-management.component';
 import { PageMessageBoxComponent } from './page-message-box/page-message-box.component';
 import { CommonTableComponent } from './common-table/common-table.component';
+import { GoalDefinitionManagementComponent } from './goal-definition-management/goal-definition-management.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CommonTableComponent } from './common-table/common-table.component';
     BottombarComponent,
     DomainManagementComponent,
     PageMessageBoxComponent,
-    CommonTableComponent
+    CommonTableComponent,
+    GoalDefinitionManagementComponent
   ],
   imports: [
     BrowserModule,

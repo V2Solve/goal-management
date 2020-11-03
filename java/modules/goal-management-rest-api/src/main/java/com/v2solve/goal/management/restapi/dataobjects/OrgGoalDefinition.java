@@ -19,12 +19,13 @@ public class OrgGoalDefinition implements Serializable
 	double goalWeight;
 	String title;
 
+	OrgGoalDomain owningGoalDomain;
 	OrgGoalDefinition parentGoal;
 	List<OrgGoalDefinition> childGoals;
 	
 	List<GoalTrackCard> goalTrackCards;
 	List<GoalValueType> goalValueTypes;
 	ClientAccount clientAccount;
-	OrgGoalDomain orgGoalDomain;
+	
 	List<TrackedItemGoal> trackedItemGoals;
 }

@@ -38,4 +38,24 @@ export class BackEndService extends BaseService
     return this.httpClient.post<backenddata.SearchOrgDomainResponse>(url,request,this.getHttpOptions()).toPromise();
   }
 
+  createOrgGoalDefinition (request: backenddata.CreateOrgGoalDefinitionRequest): Promise<backenddata.CreateOrgGoalDefinitionResponse>
+  {
+      let url = this.backendBaseUrl + "/createOrgGoalDefinition";
+      return this.httpClient.post<backenddata.CreateOrgGoalDefinitionResponse>(url,request,this.getHttpOptions()).toPromise();
+  }
+
+
+  deleteOrgGoalDefinition (request: backenddata.DeleteOrgGoalDefinitionRequest): Promise<backenddata.DeleteOrgGoalDefinitionResponse>
+  {
+    let url = this.backendBaseUrl + "/deleteOrgGoalDefinition";
+    return this.httpClient.post<backenddata.DeleteOrgGoalDefinitionResponse>(url,request,this.getHttpOptions()).toPromise();
+  }
+
+
+  searchOrgGoalDefinition (request: backenddata.SearchOrgGoalDefinitionRequest): Promise<backenddata.SearchOrgGoalDefintionResponse>
+  {
+    let url = this.backendBaseUrl + "/searchOrgGoalDefinition";
+    return this.httpClient.post<backenddata.SearchOrgGoalDefintionResponse>(url,request,this.getHttpOptions()).toPromise();
+  }
+
 }
