@@ -1,4 +1,4 @@
-import { Message } from 'primeng/api';
+import { Message, SelectItem } from 'primeng/api';
 
 /**
  * Some base functions that are required by all components in angular
@@ -54,4 +54,21 @@ export class PageMessage implements Message
         this.summary = summary;
         this.detail = detail;
     }
+}
+
+
+export class SelectRecord implements SelectItem
+{
+  label?: string;
+  value: string;
+  styleClass?: string;
+  icon?: string;
+  title?: string;
+  disabled?: boolean;  
+  
+  constructor(label: string,value: string)
+  {
+    this.label = label;
+    this.value = value;
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateOrgDomainRequest, DeleteOrgDomainRequest, OrgGoalDomain, SearchOrgDomainRequest } from '../backend-services/backend-data';
 import { RequestStatusInformation } from '../shared-services/rest-api-data';
-import { BaseComponent } from '../shared-services/base-component';
+import { BaseComponent, SelectRecord } from '../shared-services/base-component';
 import {BackEndService} from './../backend-services/backend.service'
 import {SelectItem} from './../../../../../node_modules/primeng/api';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -215,25 +215,4 @@ export class DomainManagementComponent extends BaseComponent implements OnInit
     this.searchRecords ();
   }
 
-}
-
-interface SelectedItem {
-  name: string;
-  code: string;
-}
-
-export class SelectRecord implements SelectItem
-{
-  label?: string;
-  value: string;
-  styleClass?: string;
-  icon?: string;
-  title?: string;
-  disabled?: boolean;  
-  
-  constructor(label: string,value: string)
-  {
-    this.label = label;
-    this.value = value;
-  }
 }
