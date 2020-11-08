@@ -1,1 +1,64 @@
-<p>goal-definition-management works!</p>
+<h3>Manage Domain Goal Definitions</h3>
+
+<app-page-message-box [infoMsgs]="infoMsgs" [errorMsgs]="errorMsgs"></app-page-message-box>
+
+
+<div class="p-field p-grid">
+    <label for="owning_domain" class="p-col-fixed" style="width:100px">Owning Domain</label>
+    <div class="p-col">
+        <p-dropdown id="owning_domain" [options]="listOfDomains" [formControl]="orgDomain"></p-dropdown>
+    </div>
+</div>
+
+<div class="p-field p-grid">
+    <label for="parent_goal" class="p-col-fixed" style="width:100px">Parent Goal</label>
+    <div class="p-col">
+        <p-dropdown id="parent_goal" [options]="listOfSelects" [(ngModel)]="selectedParent"></p-dropdown>
+    </div>
+</div>
+
+<div class="p-field p-grid">
+    <label for="title" class="p-col-fixed" style="width:100px">Domain Title</label>
+    <div class="p-col">
+        <input id="title" type="text" pInputText [formControl]="title">
+    </div>
+</div>
+
+<div class="p-field p-grid">
+    <label for="title_description" class="p-col-fixed" style="width:100px">Description</label>
+    <div class="p-col">
+        <textarea id="title_description" [rows]="5" [cols]="80" pInputTextarea autoResize="autoResize" [formControl]="description"></textarea>
+    </div>
+</div>
+
+<div class="p-field p-grid">
+    <label for="goal_weight" class="p-col-fixed" style="width:100px">Weight of Goal</label>
+    <div class="p-col">
+        <input id="goal_weight" type="text" pInputText [formControl]="goalWeight">
+    </div>
+</div>
+
+<button pButton type="button" label="Save" icon="pi pi-check" [disabled]="formGroup.invalid" (click)="saveRecord()"></button>&nbsp;
+<button pButton type="button" label="Delete" icon="pi pi-trash" [disabled]="formGroup.invalid" (click)="deleteRecord()"></button>&nbsp;
+<button pButton type="button" label="Search" icon="pi pi-times" (click)="searchRecords()"></button>
+
+<p></p>
+<p-treeTable [value]="treeData" #treeT>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Weight</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+        <tr>
+            <td>
+                <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+                {{rowData.title}}
+            </td>
+            <td>{{rowData.description}}</td>
+            <td>{{rowData.goalWeight}}</td>
+        </tr>
+    </ng-template>
+</p-treeTable>

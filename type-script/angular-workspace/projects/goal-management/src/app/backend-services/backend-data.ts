@@ -125,7 +125,7 @@ export class OrgGoalDefinition
 	clientAccount!: ClientAccount;
 	parentGoal!: OrgGoalDefinition
 	childGoals!: Array<OrgGoalDefinition>;
-	orgGoalDomain!: OrgGoalDomain
+	owningGoalDomain!: OrgGoalDomain
 	trackedItemGoals!: Array<TrackedItemGoal>;
 }
 

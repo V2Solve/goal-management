@@ -1,4 +1,5 @@
 import { Message, SelectItem } from 'primeng/api';
+import {TreeNode} from 'primeng/api';
 
 /**
  * Some base functions that are required by all components in angular
@@ -71,4 +72,12 @@ export class SelectRecord implements SelectItem
     this.label = label;
     this.value = value;
   }
+}
+
+
+export class TreeNodeData implements TreeNode {
+    data?: any;
+    children?: TreeNodeData[];
+    leaf?: boolean;
+    expanded?: boolean;
 }

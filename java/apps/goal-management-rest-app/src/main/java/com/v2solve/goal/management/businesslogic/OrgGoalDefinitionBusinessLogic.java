@@ -86,6 +86,14 @@ public class OrgGoalDefinitionBusinessLogic
 				parent.setTitle(src.getTitle());
 				parent.setDescription(src.getDescription());
 				parent.setId(src.getId());
+				parent.setGoalWeight(src.getGoalWeight());
+				
+				OrgGoalDomain orgGoalDomain = new OrgGoalDomain();
+				orgGoalDomain.setTitle(src.getOrgGoalDomain().getTitle());
+				orgGoalDomain.setDescription(src.getOrgGoalDomain().getDescription());
+				orgGoalDomain.setId(src.getOrgGoalDomain().getId());
+				parent.setOwningGoalDomain(orgGoalDomain);
+				
 				ClientAccount ca = new ClientAccount();
 				com.v2solve.goal.management.db.entitities.ClientAccount cae = src.getClientAccount();
 				ca.setFirstName(cae.getFirstName());
@@ -100,17 +108,67 @@ public class OrgGoalDefinitionBusinessLogic
 			}
 	}
 	
+
+	void copyChildrenRecursive (com.v2solve.goal.management.db.entitities.OrgGoalDefinition src, OrgGoalDefinition dest)
+	{
+		if (src != null)
+		{
+			List<com.v2solve.goal.management.db.entitities.OrgGoalDefinition> childrenDb = src.getOrgGoalDefinitions();
+			
+			if (childrenDb != null && childrenDb.size() > 0)
+			{
+				List<OrgGoalDefinition> children = new ArrayList<>();
+				
+				for (com.v2solve.goal.management.db.entitities.OrgGoalDefinition ogd: childrenDb)
+				{
+					OrgGoalDefinition child = new OrgGoalDefinition();
+					child.setTitle(ogd.getTitle());
+					child.setDescription(ogd.getDescription());
+					child.setId(ogd.getId());
+					child.setGoalWeight(ogd.getGoalWeight());
+					
+					OrgGoalDomain orgGoalDomain = new OrgGoalDomain();
+					orgGoalDomain.setTitle(ogd.getOrgGoalDomain().getTitle());
+					orgGoalDomain.setDescription(ogd.getOrgGoalDomain().getDescription());
+					orgGoalDomain.setId(ogd.getOrgGoalDomain().getId());
+					child.setOwningGoalDomain(orgGoalDomain);
+					
+					
+					ClientAccount ca = new ClientAccount();
+					com.v2solve.goal.management.db.entitities.ClientAccount cae = ogd.getClientAccount();
+					ca.setFirstName(cae.getFirstName());
+					ca.setLastName(cae.getLastName());
+					ca.setId(cae.getId());
+					ca.setPrimaryEmail(cae.getPrimaryEmail());
+					ca.setUniqueDisplayName(cae.getUniqueDisplayName());
+					child.setClientAccount(ca);
+					children.add(child);
+					copyChildrenRecursive(ogd, child);
+				}
+				
+				dest.setChildGoals(children);
+			}
+		}
+	}
 	
 	void copyObject (com.v2solve.goal.management.db.entitities.OrgGoalDefinition src,OrgGoalDefinition dest)
 	{
 		dest.setTitle(src.getTitle());
 		dest.setDescription(src.getDescription());
 		dest.setId(src.getId());
+		dest.setGoalWeight(src.getGoalWeight());
+		
+		OrgGoalDomain orgGoalDomain = new OrgGoalDomain();
+		orgGoalDomain.setTitle(src.getOrgGoalDomain().getTitle());
+		orgGoalDomain.setDescription(src.getOrgGoalDomain().getDescription());
+		orgGoalDomain.setId(src.getOrgGoalDomain().getId());
+		dest.setOwningGoalDomain(orgGoalDomain);
 		
 		com.v2solve.goal.management.db.entitities.OrgGoalDefinition parentGoal = src.getOrgGoalDefinition();
 		
 		// Lets give the parent recursive.
 		copyParentRecursive(parentGoal, dest);
+		copyChildrenRecursive(src,dest);
 		
 		com.v2solve.goal.management.restapi.dataobjects.ClientAccount ca = new com.v2solve.goal.management.restapi.dataobjects.ClientAccount();
 		com.v2solve.goal.management.db.entitities.ClientAccount caE = src.getClientAccount();
@@ -205,9 +263,12 @@ public class OrgGoalDefinitionBusinessLogic
 			{
 				for (com.v2solve.goal.management.db.entitities.OrgGoalDefinition ogd: listOfObjects)
 				{
-					OrgGoalDefinition ogdd = new OrgGoalDefinition();
-					copyObject(ogd, ogdd);
-					results.add(ogdd);
+					// if (ogd.getOrgGoalDefinition() == null)	// Lets only return top level..
+					{
+						OrgGoalDefinition ogdd = new OrgGoalDefinition();
+						copyObject(ogd, ogdd);
+						results.add(ogdd);
+					}
 				}
 			}
 		}

@@ -20,6 +20,8 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {TableModule} from 'primeng/table';
 import {MultiSelectModule} from 'primeng/multiselect';
+import {TreeTableModule} from 'primeng/treetable';
+
 
 import { DomainManagementComponent } from './domain-management/domain-management.component';
 import { PageMessageBoxComponent } from './page-message-box/page-message-box.component';
@@ -52,7 +54,8 @@ import { GoalDefinitionManagementComponent } from './goal-definition-management/
     MessagesModule,
     MessageModule,
     TableModule,
-    MultiSelectModule
+    MultiSelectModule,
+    TreeTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
