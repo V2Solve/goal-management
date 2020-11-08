@@ -49,6 +49,7 @@
             <th>Title</th>
             <th>Description</th>
             <th>Weight</th>
+            <th>OrgDomain</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
@@ -59,6 +60,7 @@
             </td>
             <td>{{rowData.description}}</td>
             <td>{{rowData.goalWeight}}</td>
+            <td>{{rowData.owningGoalDomain.title}}</td>
         </tr>
     </ng-template>
 </p-treeTable>

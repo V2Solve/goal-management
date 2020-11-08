@@ -116,7 +116,7 @@ export class GoalDefinitionManagementComponent extends BaseComponent implements 
       if (response.status.statusCode == RequestStatusInformation.standardSuccessCode)
       {
           this.setInfoMessage(response.status.statusMessage);
-          this.searchRecords ();
+          this.searchRecords (true);
       }
       else
       {
@@ -137,7 +137,7 @@ export class GoalDefinitionManagementComponent extends BaseComponent implements 
       if (response.status.statusCode == RequestStatusInformation.standardSuccessCode)
       {
           this.setInfoMessage(response.status.statusMessage);
-          this.searchRecords ();
+          this.searchRecords (true);
       }
       else
       {
@@ -267,18 +267,21 @@ export class GoalDefinitionManagementComponent extends BaseComponent implements 
   // ];
   }
 
-  searchRecords ()
+  searchRecords (clear?: boolean)
   {
      this.listOfDefinitions.length = 0;
      let request = new SearchOrgGoalDefinitionRequest ();
      let goalInfo = new OrgGoalDefinition ();
      request.goalInfo = goalInfo;
      
-     if (this.description.value != null && this.description.value.length > 0)
-     goalInfo.description = this.description.value;
-     
-     if (this.title.value != null && this.title.value.length > 0)
-     goalInfo.title = this.title.value;
+     if (!clear)
+     {
+      if (this.description.value != null && this.description.value.length > 0)
+      goalInfo.description = this.description.value;
+      
+      if (this.title.value != null && this.title.value.length > 0)
+      goalInfo.title = this.title.value;
+     }
      
      let result = this.bs.searchOrgGoalDefinition(request);
      
@@ -351,8 +354,7 @@ export class GoalDefinitionManagementComponent extends BaseComponent implements 
   {
     this.readOrgDomains ();
     this.readOrgGoalDefinitions ();
-    this.searchRecords ();
-    // this.setTreeData ();
+    this.searchRecords (false);
   }
 
 }

@@ -21,8 +21,7 @@ public class GoalTrackCard implements Serializable
 	String description;
 	String title;
 	ClientAccount clientAccount;
-	OrgGoalDefinition orgGoalDefinition;
-	OrgGoalDomain orgGoalDomain;
+	OrgGoalDefinition targetGoalDefinition;
+	OrgGoalDomain owningGoalDomain;
 	List<TrackedItemToCard> trackedItemToCards;
-
 }

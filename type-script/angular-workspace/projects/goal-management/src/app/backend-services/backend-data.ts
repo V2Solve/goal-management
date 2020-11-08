@@ -77,8 +77,8 @@ export class GoalTrackCard
 	description!: string;
 	title!: string;
 	clientAccount!: ClientAccount
-	orgGoalDefinition!: OrgGoalDefinition
-	orgGoalDomain!: OrgGoalDomain
+	targetGoalDefinition!: OrgGoalDefinition
+	owningOrgDomain!: OrgGoalDomain
 	trackedItemToCards!:  Array<TrackedItemToCard>;
 }
 
